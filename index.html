@@ -3,374 +3,418 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ГениусЛаб — Бизнес-план</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>ГениусЛаб — Бизнес-план 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 :root{
-  --bg:#07090F;
-  --bg2:#0D1117;
-  --bg3:#141B27;
-  --card:#111827;
-  --border:rgba(255,255,255,0.07);
-  --border2:rgba(255,255,255,0.12);
-  --accent:#00C9FF;
-  --accent2:#0077FF;
-  --gold:#F5A623;
-  --green:#22C55E;
-  --red:#EF4444;
-  --purple:#A78BFA;
-  --text:#E8ECF4;
-  --text2:#8A95A8;
-  --text3:#4A5568;
+  --bg:#06080E;
+  --bg2:#0C0F19;
+  --card:#101524;
+  --card2:#141929;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.11);
+  --accent:#3B82F6;
+  --accent2:#06B6D4;
+  --gold:#F59E0B;
+  --green:#10B981;
+  --purple:#8B5CF6;
+  --rose:#F43F5E;
+  --text:#DDE4F0;
+  --text2:#8B93A7;
+  --text3:#3D4560;
   --sidebar:260px;
-  --r:14px;
+  --r:12px;
+  --glow:rgba(59,130,246,0.15);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;overflow-x:hidden}
+html{}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;overflow-x:hidden}
 
-/* ---- SIDEBAR ---- */
-#sidebar{
-  width:var(--sidebar);position:fixed;top:0;left:0;height:100vh;
-  background:var(--bg2);border-right:1px solid var(--border);
-  display:flex;flex-direction:column;z-index:100;
-  padding:0 0 20px;overflow-y:auto;
-}
-.sidebar-logo{padding:28px 24px 20px;border-bottom:1px solid var(--border)}
-.sidebar-logo h1{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;
-  background:linear-gradient(135deg,#00C9FF,#0077FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sidebar-logo p{font-size:11px;color:var(--text3);margin-top:3px;letter-spacing:.5px;text-transform:uppercase}
-.nav-section{padding:18px 16px 6px;font-size:10px;color:var(--text3);letter-spacing:1.2px;text-transform:uppercase;font-weight:600}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 16px;margin:1px 8px;border-radius:8px;
-  text-decoration:none;color:var(--text2);font-size:13px;font-weight:400;cursor:pointer;
-  transition:all .2s;border:1px solid transparent}
-.nav-item:hover{background:rgba(0,201,255,0.06);color:var(--text);border-color:rgba(0,201,255,0.1)}
-.nav-item.active{background:rgba(0,201,255,0.1);color:var(--accent);border-color:rgba(0,201,255,0.2)}
-.nav-item .dot{width:6px;height:6px;border-radius:50%;background:var(--text3);flex-shrink:0;transition:.2s}
-.nav-item.active .dot,.nav-item:hover .dot{background:var(--accent)}
-.sidebar-badge{margin:auto 16px 0;background:linear-gradient(135deg,rgba(0,201,255,.15),rgba(0,119,255,.1));
-  border:1px solid rgba(0,201,255,.2);border-radius:10px;padding:14px;text-align:center}
-.sidebar-badge p{font-size:11px;color:var(--accent);font-weight:600;letter-spacing:.5px}
-.sidebar-badge span{font-size:10px;color:var(--text3);display:block;margin-top:2px}
+/* ─── SUBTLE BG PATTERN ─── */
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(rgba(59,130,246,.03) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0}
 
-/* ---- MAIN ---- */
-#main{margin-left:var(--sidebar);flex:1;padding:0}
+/* ─── SIDEBAR ─── */
+#sidebar{width:var(--sidebar);position:fixed;top:0;left:0;height:100vh;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:100;padding-bottom:20px;overflow-y:auto}
+.sb-logo{padding:28px 22px 20px;border-bottom:1px solid var(--border)}
+.sb-logo-mark{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.sb-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.sb-logo h1{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--text)}
+.sb-logo p{font-size:10px;color:var(--text3);letter-spacing:.8px;text-transform:uppercase;margin-top:2px;padding-left:42px}
+.sb-sect{padding:18px 16px 5px;font-size:9.5px;color:var(--text3);letter-spacing:1.4px;text-transform:uppercase;font-weight:600}
+.nav-item{display:flex;align-items:center;gap:9px;padding:7px 12px;margin:1px 8px;border-radius:7px;text-decoration:none;color:var(--text2);font-size:12px;cursor:pointer;transition:all .15s;border:1px solid transparent}
+.nav-item:hover{background:rgba(59,130,246,.07);color:var(--text);border-color:rgba(59,130,246,.1)}
+.nav-item.active{background:rgba(59,130,246,.1);color:var(--accent);border-color:rgba(59,130,246,.18)}
+.nav-dot{width:4px;height:4px;border-radius:50%;background:var(--text3);flex-shrink:0;transition:.15s}
+.nav-item.active .nav-dot,.nav-item:hover .nav-dot{background:var(--accent)}
+.sb-footer{margin:auto 14px 0;padding:14px;background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(6,182,212,.05));border:1px solid rgba(59,130,246,.15);border-radius:10px;text-align:center}
+.sb-footer p{font-size:11px;color:var(--accent);font-weight:600}
+.sb-footer span{font-size:10px;color:var(--text3);display:block;margin-top:2px}
 
-/* ---- HERO ---- */
-#hero{
-  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-  padding:80px 64px;position:relative;overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 900px 600px at 70% 40%,rgba(0,119,255,.12),transparent),
-             radial-gradient(ellipse 600px 400px at 20% 80%,rgba(0,201,255,.07),transparent);
-}
-.hero-grid{position:absolute;inset:0;opacity:.025;
-  background-image:linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);
-  background-size:48px 48px}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,201,255,.08);
-  border:1px solid rgba(0,201,255,.2);border-radius:100px;padding:6px 16px;
-  font-size:12px;color:var(--accent);font-weight:500;margin-bottom:28px;letter-spacing:.5px}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:700;line-height:1.05;
-  max-width:780px;margin-bottom:6px}
-.hero h1 em{font-style:normal;background:linear-gradient(135deg,#00C9FF,#0077FF);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:18px;color:var(--text2);max-width:560px;line-height:1.7;margin-bottom:48px;font-weight:300}
-.hero-metrics{display:flex;gap:40px;flex-wrap:wrap}
-.hero-metric{border-left:2px solid rgba(0,201,255,.3);padding-left:20px}
-.hero-metric .val{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;
-  background:linear-gradient(135deg,#fff,#8A95A8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
-.hero-metric .lbl{font-size:12px;color:var(--text3);margin-top:4px;font-weight:400;letter-spacing:.3px}
-.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
-  font-size:11px;color:var(--text3);display:flex;flex-direction:column;align-items:center;gap:8px;letter-spacing:.5px}
-.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(var(--text3),transparent)}
+/* ─── MAIN ─── */
+#main{margin-left:var(--sidebar);flex:1;min-width:0;position:relative;z-index:1}
 
-/* ---- SECTIONS ---- */
-.section{padding:80px 64px;border-top:1px solid var(--border)}
-.section:nth-child(even){background:rgba(255,255,255,.01)}
-.s-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--accent);
-  font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px}
-.s-num{width:20px;height:20px;border-radius:50%;background:rgba(0,201,255,.15);
-  border:1px solid rgba(0,201,255,.3);display:flex;align-items:center;justify-content:center;
-  font-size:9px;font-weight:700}
-.s-title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;line-height:1.1;margin-bottom:8px}
-.s-desc{font-size:15px;color:var(--text2);max-width:640px;line-height:1.7;margin-bottom:48px}
+/* ─── HERO ─── */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 64px;position:relative;overflow:hidden}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none;will-change:auto}
+.hero-orb-1{width:700px;height:500px;top:-100px;right:-100px;background:radial-gradient(circle,rgba(59,130,246,.10) 0%,rgba(59,130,246,.04) 40%,transparent 70%)}
+.hero-orb-2{width:400px;height:400px;bottom:-50px;left:100px;background:radial-gradient(circle,rgba(6,182,212,.06) 0%,transparent 65%)}
+.hero-grid{position:absolute;inset:0;opacity:.015;background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:56px 56px}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.18);border-radius:100px;padding:5px 16px 5px 8px;font-size:11px;color:var(--accent);font-weight:500;margin-bottom:28px;letter-spacing:.3px}
+.kicker-pulse{width:22px;height:22px;border-radius:50%;background:rgba(59,130,246,.15);display:flex;align-items:center;justify-content:center}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.4}}
+.kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.2s infinite;will-change:transform}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:700;line-height:1.04;max-width:720px;margin-bottom:8px;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:16.5px;color:var(--text2);max-width:520px;line-height:1.78;margin-bottom:52px;font-weight:300}
+.hero-metrics{display:flex;gap:0;flex-wrap:wrap;border:1px solid var(--border2);border-radius:14px;overflow:hidden;background:var(--card);width:fit-content}
+.hero-metric{padding:22px 32px;position:relative}
+.hero-metric+.hero-metric{border-left:1px solid var(--border)}
+.hero-metric .val{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;line-height:1;background:linear-gradient(135deg,#fff,#8B93A7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-metric .lbl{font-size:10.5px;color:var(--text3);margin-top:4px;letter-spacing:.3px}
 
-/* ---- CARDS ---- */
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:.2s}
-.card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.card-title{font-size:13px;font-weight:600;color:var(--text2);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
-.card-val{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;line-height:1}
-.card-sub{font-size:12px;color:var(--text3);margin-top:6px}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+/* ─── SECTION ─── */
+.section{padding:76px 64px;border-top:1px solid var(--border)}
+.section:nth-child(even){background:rgba(255,255,255,.006)}
+.s-tag{display:inline-flex;align-items:center;gap:7px;font-size:10px;color:var(--accent);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.s-num{width:20px;height:20px;border-radius:50%;background:rgba(59,130,246,.14);border:1px solid rgba(59,130,246,.28);display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700;font-family:'DM Mono',monospace}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;line-height:1.08;margin-bottom:10px;letter-spacing:-.3px}
+.s-desc{font-size:14px;color:var(--text2);max-width:600px;line-height:1.75;margin-bottom:44px;font-weight:300}
 
-/* ---- PROBLEM/SOLUTION ---- */
+/* ─── CARDS ─── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px;transition:.2s}
+.card:hover{border-color:var(--border2)}
+.card-title{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.8px;text-transform:uppercase;margin-bottom:7px}
+.card-val{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:1}
+.card-sub{font-size:11px;color:var(--text3);margin-top:5px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+
+/* ─── PROBLEM / SOLUTION ─── */
 .ps-split{display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:var(--r);overflow:hidden}
-.ps-block{padding:40px;position:relative;overflow:hidden}
-.ps-block.prob{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15)}
-.ps-block.sol{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15)}
-.ps-block h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px}
-.ps-block ul{list-style:none;display:flex;flex-direction:column;gap:12px}
-.ps-block li{font-size:14px;color:var(--text2);line-height:1.6;padding-left:20px;position:relative}
-.ps-block.prob li::before{content:'✗';position:absolute;left:0;color:var(--red);font-weight:700}
-.ps-block.sol li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
-.ps-accent{font-size:56px;position:absolute;right:24px;top:16px;opacity:.05;font-family:'Cormorant Garamond',serif;font-weight:700}
+.ps-block{padding:36px;position:relative;overflow:hidden}
+.ps-block.prob{background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.12)}
+.ps-block.sol{background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.12)}
+.ps-block h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.ps-block ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.ps-block li{font-size:13px;color:var(--text2);line-height:1.65;padding-left:20px;position:relative}
+.ps-block.prob li::before{content:'✗';position:absolute;left:0;color:var(--rose);font-weight:700;font-size:11px;top:2px}
+.ps-block.sol li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;font-size:11px;top:2px}
+.ps-accent{font-size:80px;position:absolute;right:16px;top:8px;opacity:.04;font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1}
 
-/* ---- 4P ---- */
-.p4-tabs{display:flex;gap:4px;margin-bottom:32px;background:var(--bg2);border-radius:10px;padding:4px;width:fit-content}
-.p4-tab{padding:10px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;
-  transition:.2s;color:var(--text3);border:none;background:transparent}
-.p4-tab.active{background:var(--card);color:var(--text);border:1px solid var(--border2)}
+/* ─── TABS ─── */
+.p4-tabs{display:flex;gap:2px;margin-bottom:28px;background:var(--bg2);border-radius:9px;padding:3px;width:fit-content;border:1px solid var(--border)}
+.p4-tab{padding:8px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:.18s;color:var(--text3);border:none;background:transparent;font-family:'DM Sans',sans-serif}
+.p4-tab.active{background:var(--card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.3)}
 .p4-panel{display:none}.p4-panel.active{display:block}
 
-/* ---- LEVELS ---- */
-.level-ring{display:flex;flex-direction:column;gap:0}
-.level-item{display:flex;align-items:stretch;gap:0;position:relative}
-.level-left{width:180px;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;padding:24px 24px 24px 0;text-align:right}
-.level-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;line-height:1;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.level-name{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-top:2px}
-.level-line{width:2px;background:linear-gradient(var(--accent),transparent);flex-shrink:0;margin:8px 0}
+/* ─── 3 LEVELS ─── */
+.level-ring{display:flex;flex-direction:column}
+.level-item{display:flex;align-items:stretch}
+.level-left{width:160px;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;padding:20px 20px 20px 0;text-align:right}
+.level-num{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;line-height:1;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.level-name{font-size:9.5px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-top:3px}
 .level-content{flex:1;padding:20px 0 20px 28px;border-left:1px solid var(--border)}
-.level-title{font-size:16px;font-weight:600;margin-bottom:8px}
-.level-text{font-size:14px;color:var(--text2);line-height:1.7}
-.level-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.chip{font-size:12px;padding:4px 12px;border-radius:100px;border:1px solid var(--border2);color:var(--text2)}
-.chip.ac{background:rgba(0,201,255,.08);border-color:rgba(0,201,255,.2);color:var(--accent)}
+.level-title{font-size:15px;font-weight:600;margin-bottom:8px}
+.level-text{font-size:13px;color:var(--text2);line-height:1.72}
+.level-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{font-size:11px;padding:3px 11px;border-radius:100px;border:1px solid var(--border2);color:var(--text2)}
+.chip.ac{background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.22);color:var(--accent)}
 
-/* ---- PRICE ---- */
-.price-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.price-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px 20px;text-align:center;position:relative;transition:.3s}
-.price-card:hover{border-color:var(--border2);transform:translateY(-4px)}
-.price-card.featured{border-color:rgba(0,201,255,.4);background:rgba(0,201,255,.05)}
-.price-card.featured::before{content:'Основной';position:absolute;top:-10px;left:50%;transform:translateX(-50%);
-  background:var(--accent);color:#000;font-size:10px;font-weight:700;padding:3px 12px;border-radius:100px;letter-spacing:.5px;white-space:nowrap}
-.price-name{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px}
-.price-val{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;line-height:1}
-.price-period{font-size:11px;color:var(--text3);margin-top:4px}
-.price-feature{font-size:12px;color:var(--text2);margin-top:16px;line-height:1.6}
+/* ─── PRICE ─── */
+.price-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 16px;text-align:center;position:relative;transition:.22s}
+.price-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.price-card.featured{border-color:rgba(59,130,246,.4);background:rgba(59,130,246,.04)}
+.price-card.featured::before{content:'Основной';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:9px;font-weight:700;padding:3px 10px;border-radius:100px;white-space:nowrap}
+.price-name{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.price-val{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:1}
+.price-period{font-size:10px;color:var(--text3);margin-top:3px}
+.price-feature{font-size:11.5px;color:var(--text2);margin-top:14px;line-height:1.65}
+.cost-row{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:var(--bg2);border-radius:8px;font-size:13px;margin-bottom:6px}
+.cost-label{color:var(--text2)}
+.cost-val{font-weight:600;color:var(--text)}
 
-/* ---- CHANNELS ---- */
-.channel-flow{display:flex;align-items:center;gap:0;flex-wrap:wrap}
-.channel-node{background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:16px 20px;text-align:center;min-width:120px}
-.channel-node h4{font-size:13px;font-weight:600;margin-bottom:4px}
-.channel-node p{font-size:11px;color:var(--text3)}
-.channel-arrow{font-size:20px;color:var(--text3);margin:0 8px}
+/* ─── CHANNEL ─── */
+.channel-node{background:var(--card);border:1px solid var(--border2);border-radius:9px;padding:13px 17px;text-align:center;min-width:110px}
+.channel-node h4{font-size:12.5px;font-weight:600;margin-bottom:3px}
+.channel-node p{font-size:10.5px;color:var(--text3)}
+.channel-arrow{font-size:18px;color:var(--text3);margin:0 6px}
 
-/* ---- PROMO ---- */
-.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.promo-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;transition:.2s}
+/* ─── PROMO ─── */
+.promo-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;transition:.18s}
 .promo-card:hover{border-color:var(--border2)}
-.promo-icon{font-size:28px;margin-bottom:12px}
-.promo-card h4{font-size:15px;font-weight:600;margin-bottom:8px}
-.promo-card p{font-size:13px;color:var(--text2);line-height:1.6}
-.promo-budget{font-size:12px;color:var(--accent);margin-top:12px;font-weight:500}
+.promo-icon{font-size:26px;margin-bottom:10px}
+.promo-card h4{font-size:14px;font-weight:600;margin-bottom:7px}
+.promo-card p{font-size:12.5px;color:var(--text2);line-height:1.6}
+.promo-budget{font-size:11px;color:var(--accent);margin-top:10px;font-weight:600;font-family:'DM Mono',monospace}
 
-/* ---- COMPETITORS ---- */
-.comp-table{width:100%;border-collapse:collapse;font-size:13px}
-.comp-table th{padding:12px 16px;text-align:left;font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border)}
-.comp-table td{padding:14px 16px;border-bottom:1px solid var(--border);color:var(--text2)}
+/* ─── COMPETITORS ─── */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.comp-table th{padding:11px 14px;text-align:left;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg2)}
+.comp-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text2)}
 .comp-table tr:last-child td{border:none}
-.comp-table tr.us td{color:var(--text);background:rgba(0,201,255,.04)}
-.comp-table .yes{color:var(--green)}
-.comp-table .no{color:var(--red)}
-.comp-table .part{color:var(--gold)}
-.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600}
-.badge.us-b{background:rgba(0,201,255,.15);color:var(--accent);border:1px solid rgba(0,201,255,.3)}
-.badge.comp-b{background:rgba(255,255,255,.05);color:var(--text3);border:1px solid var(--border)}
+.comp-table tr.us td{color:var(--text);background:rgba(59,130,246,.04)}
+.yes{color:var(--green)}.no{color:var(--rose)}.part{color:var(--gold)}
+.badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:100px;font-size:10.5px;font-weight:600}
+.badge.us-b{background:rgba(59,130,246,.14);color:var(--accent);border:1px solid rgba(59,130,246,.28)}
+.badge.comp-b{background:rgba(255,255,255,.04);color:var(--text3);border:1px solid var(--border)}
 
-/* ---- CANVAS ---- */
-.canvas-grid{display:grid;grid-template-columns:1.2fr 1fr 1.5fr 1fr 1.2fr;grid-template-rows:auto auto;gap:2px}
-.canvas-cell{background:var(--card);border:1px solid var(--border);padding:20px;position:relative}
-.canvas-cell:hover{border-color:var(--border2);background:rgba(255,255,255,.025)}
-.canvas-cell h4{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px;color:var(--accent)}
-.canvas-cell ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.canvas-cell li{font-size:12.5px;color:var(--text2);padding-left:14px;position:relative;line-height:1.5}
-.canvas-cell li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px}
-.canvas-cell.span2r{grid-row:span 2}
-.canvas-bottom{grid-column:span 2;background:rgba(245,166,35,.04);border-color:rgba(245,166,35,.2)}
+/* ─── CANVAS ─── */
+.canvas-grid{display:grid;grid-template-columns:1.1fr 1fr 1.4fr 1fr 1.1fr;grid-template-rows:auto auto;gap:2px}
+.canvas-cell{background:var(--card);border:1px solid var(--border);padding:18px;transition:.15s}
+.canvas-cell:hover{border-color:var(--border2)}
+.canvas-cell h4{font-size:9.5px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin-bottom:10px;color:var(--accent)}
+.canvas-cell ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.canvas-cell li{font-size:12px;color:var(--text2);padding-left:12px;position:relative;line-height:1.5}
+.canvas-cell li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:10px;top:1px}
+.canvas-vp{background:rgba(59,130,246,.04);border-color:rgba(59,130,246,.18)!important}
+.canvas-bottom{background:rgba(245,158,11,.04);border-color:rgba(245,158,11,.18)!important}
 .canvas-bottom h4{color:var(--gold)}
 .canvas-bottom li::before{color:var(--gold)}
-.canvas-vp{grid-column:span 1;background:rgba(0,201,255,.04);border-color:rgba(0,201,255,.2)}
 
-/* ---- RISKS ---- */
-#riskChart{width:100%;height:460px}
+/* ─── RISKS ─── */
+.risk-matrix-wrap{position:relative;width:100%;height:460px}
+.risk-matrix-wrap canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.risk-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px}
+.risk-zone{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text2)}
+.risk-dot{width:10px;height:10px;border-radius:50%}
 
-/* ---- INVESTMENT ---- */
-.invest-split{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.invest-donut{position:relative;height:280px}
-.invest-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:24px}
-.invest-row{display:flex;align-items:center;gap:12px}
-.invest-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.invest-label{flex:1;font-size:14px;color:var(--text2)}
-.invest-val{font-size:14px;font-weight:600}
-.invest-pct{font-size:12px;color:var(--text3);margin-left:4px}
-.deal-terms{display:flex;flex-direction:column;gap:16px}
-.term-row{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;
-  background:var(--card);border:1px solid var(--border);border-radius:10px}
-.term-label{font-size:13px;color:var(--text2)}
-.term-val{font-size:14px;font-weight:600}
+/* ─── RISK TABLE ─── */
+.risk-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.risk-table th{padding:10px 14px;text-align:left;font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg2)}
+.risk-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+.risk-table tr:last-child td{border:none}
+.risk-label-crit{color:var(--rose);font-weight:600;font-size:11px}
+.risk-label-mod{color:var(--gold);font-weight:600;font-size:11px}
+.risk-label-low{color:var(--green);font-weight:600;font-size:11px}
+.risk-pill{display:inline-block;padding:2px 9px;border-radius:100px;font-size:10px;font-weight:600;font-family:'DM Mono',monospace}
+.risk-pill.crit{background:rgba(244,63,94,.1);border:1px solid rgba(244,63,94,.22);color:var(--rose)}
+.risk-pill.mod{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.22);color:var(--gold)}
+.risk-pill.low{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.22);color:var(--green)}
 
-/* ---- FINANCIAL ---- */
-.fin-kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
-.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 20px}
-.kpi-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
-.kpi-val{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:1}
-.kpi-delta{font-size:12px;margin-top:6px}
-.kpi-delta.up{color:var(--green)}.kpi-delta.dn{color:var(--red)}
-#finChart{width:100%;height:340px;margin-bottom:40px}
-.fin-table{width:100%;border-collapse:collapse;font-size:13px}
-.fin-table th{padding:12px 16px;background:var(--bg2);text-align:right;font-size:10px;color:var(--text3);letter-spacing:.8px;text-transform:uppercase}
+/* ─── SCENARIO CARDS ─── */
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:8px}
+.scenario-card{border-radius:12px;padding:24px;border:1px solid}
+.scenario-card.bear{background:rgba(244,63,94,.04);border-color:rgba(244,63,94,.15)}
+.scenario-card.base{background:rgba(59,130,246,.04);border-color:rgba(59,130,246,.18)}
+.scenario-card.bull{background:rgba(16,185,129,.04);border-color:rgba(16,185,129,.15)}
+.scenario-tag{font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.scenario-card.bear .scenario-tag{color:var(--rose)}
+.scenario-card.base .scenario-tag{color:var(--accent)}
+.scenario-card.bull .scenario-tag{color:var(--green)}
+.scenario-metric{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.sc-row{display:flex;justify-content:space-between;font-size:12px;padding:7px 0;border-bottom:1px solid var(--border)}
+.sc-row:last-child{border:none}
+.sc-row .sc-lbl{color:var(--text2)}
+.sc-row .sc-val{font-weight:600;font-family:'DM Mono',monospace;font-size:11.5px}
+
+/* ─── INVESTMENT ─── */
+.invest-split{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.invest-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.invest-row{display:flex;align-items:center;gap:11px}
+.invest-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.invest-label{flex:1;font-size:13px;color:var(--text2)}
+.invest-val{font-size:13px;font-weight:600}
+.invest-pct{font-size:11px;color:var(--text3);margin-left:3px;font-family:'DM Mono',monospace}
+.deal-terms{display:flex;flex-direction:column;gap:10px}
+.term-row{display:flex;justify-content:space-between;align-items:center;padding:13px 17px;background:var(--card);border:1px solid var(--border);border-radius:9px}
+.term-label{font-size:12px;color:var(--text2)}
+.term-val{font-size:12.5px;font-weight:600;font-family:'DM Mono',monospace}
+
+/* ─── FINANCE ─── */
+.fin-kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px}
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 18px}
+.kpi-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.kpi-val{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;line-height:1}
+.kpi-delta{font-size:11px;margin-top:5px;font-family:'DM Mono',monospace}
+.kpi-delta.up{color:var(--green)}.kpi-delta.dn{color:var(--rose)}.kpi-delta.warn{color:var(--gold)}
+.fin-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.fin-table th{padding:11px 14px;background:var(--bg2);text-align:right;font-size:9px;color:var(--text3);letter-spacing:.7px;text-transform:uppercase}
 .fin-table th:first-child{text-align:left}
-.fin-table td{padding:12px 16px;border-bottom:1px solid var(--border);text-align:right;color:var(--text2)}
+.fin-table td{padding:11px 14px;border-bottom:1px solid var(--border);text-align:right;color:var(--text2)}
 .fin-table td:first-child{text-align:left;color:var(--text);font-weight:500}
 .fin-table tr.total td{font-weight:700;color:var(--text);background:rgba(255,255,255,.02);border-top:1px solid var(--border2)}
-.fin-table .pos{color:var(--green)}.fin-table .neg{color:var(--red)}
+.fin-table tr.section-header td{background:var(--bg2);font-size:9.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--text3);font-weight:600;padding:7px 14px}
+.pos{color:var(--green)}.neg{color:var(--rose)}.warn-c{color:var(--gold)}
 
-/* ---- ROADMAP ---- */
-.roadmap{position:relative;padding-left:48px}
-.roadmap::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;
-  background:linear-gradient(var(--accent),var(--accent2),transparent)}
-.rm-item{position:relative;margin-bottom:40px}
-.rm-dot{position:absolute;left:-40px;top:6px;width:12px;height:12px;border-radius:50%;
-  background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 12px rgba(0,201,255,.4)}
-.rm-phase{font-size:11px;color:var(--accent);font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px}
-.rm-title{font-size:18px;font-weight:600;margin-bottom:4px}
-.rm-date{font-size:12px;color:var(--text3);margin-bottom:12px}
-.rm-items{display:flex;flex-wrap:wrap;gap:8px}
-.rm-chip{font-size:12px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:5px 12px;color:var(--text2)}
+/* ─── SENSITIVITY TABLE ─── */
+.sens-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+.sens-table th{padding:9px 12px;text-align:center;font-size:9px;color:var(--text3);letter-spacing:.7px;text-transform:uppercase;border-bottom:1px solid var(--border);background:var(--bg2)}
+.sens-table th:first-child{text-align:left}
+.sens-table td{padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;color:var(--text2);font-family:'DM Mono',monospace;font-size:11px}
+.sens-table td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text)}
+.sens-table tr:last-child td{border:none}
+.cell-green{background:rgba(16,185,129,.08);color:var(--green)!important}
+.cell-red{background:rgba(244,63,94,.07);color:var(--rose)!important}
+.cell-yellow{background:rgba(245,158,11,.07);color:var(--gold)!important}
 
-/* ---- IP ---- */
-.ip-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.ip-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px}
-.ip-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
-.ip-card h4{font-size:16px;font-weight:600;margin-bottom:8px}
-.ip-card p{font-size:13px;color:var(--text2);line-height:1.7}
-.ip-status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
-  margin-top:12px;padding:4px 12px;border-radius:100px}
-.ip-status.done{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.2)}
-.ip-status.plan{background:rgba(245,166,35,.1);color:var(--gold);border:1px solid rgba(245,166,35,.2)}
+/* ─── ROADMAP ─── */
+.roadmap{position:relative;padding-left:44px}
+.roadmap::before{content:'';position:absolute;left:13px;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),var(--accent2),rgba(59,130,246,.15),transparent)}
+.rm-item{position:relative;margin-bottom:36px}
+.rm-dot{position:absolute;left:-38px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 12px rgba(59,130,246,.5)}
+.rm-phase{font-size:9.5px;color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.rm-title{font-size:17px;font-weight:600;margin-bottom:3px}
+.rm-date{font-size:11px;color:var(--text3);margin-bottom:12px;font-family:'DM Mono',monospace}
+.rm-items{display:flex;flex-wrap:wrap;gap:7px}
+.rm-chip{font-size:11px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 11px;color:var(--text2)}
+.rm-kpi{font-size:11px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:6px;padding:4px 11px;color:var(--accent);font-family:'DM Mono',monospace}
 
-/* ---- PARTNERS ---- */
-.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.partner-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
-.partner-type{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
-.partner-card h4{font-size:15px;font-weight:600;margin-bottom:8px}
-.partner-card p{font-size:13px;color:var(--text2);line-height:1.6}
+/* ─── TEAM ─── */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.team-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.team-role{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+.team-name{font-size:13.5px;font-weight:600;margin-bottom:3px}
+.team-sal{font-size:11.5px;color:var(--accent);font-family:'DM Mono',monospace}
 
-/* ---- DIVIDER ---- */
-.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:48px 0}
+/* ─── IP ─── */
+.ip-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:26px}
+.ip-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.ip-card h4{font-size:15px;font-weight:600;margin-bottom:7px}
+.ip-card p{font-size:13px;color:var(--text2);line-height:1.68}
+.ip-status{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;margin-top:10px;padding:3px 11px;border-radius:100px}
+.ip-status.done{background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.2)}
+.ip-status.plan{background:rgba(245,158,11,.1);color:var(--gold);border:1px solid rgba(245,158,11,.2)}
 
-/* ---- SCROLL ANIMATION ---- */
-.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
-.fade-in.visible{opacity:1;transform:none}
+/* ─── PARTNER ─── */
+.partner-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px}
+.partner-type{font-size:9.5px;color:var(--text3);text-transform:uppercase;letter-spacing:.7px;margin-bottom:7px}
+.partner-card h4{font-size:14px;font-weight:600;margin-bottom:7px}
+.partner-card p{font-size:12.5px;color:var(--text2);line-height:1.6}
 
-/* ---- SCROLLBAR ---- */
+/* ─── PROGRESS ─── */
+.prog-row{margin-bottom:14px}
+.prog-header{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px}
+.prog-label{color:var(--text2)}
+.prog-bar{height:5px;background:var(--bg2);border-radius:3px}
+.prog-fill{height:100%;border-radius:3px;transition:width 1s ease}
+
+/* ─── MISC ─── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:44px 0}
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity .45s,transform .45s;will-change:opacity,transform}
+.fade-in.visible{opacity:1;transform:translateY(0);will-change:auto}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.note{background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.13);border-radius:9px;padding:13px 16px;font-size:12.5px;color:var(--text2);line-height:1.65;margin-top:14px}
+.note strong{color:var(--accent)}
+
+/* ─── INSIGHT BOX ─── */
+.insight-box{display:flex;gap:14px;padding:18px 20px;background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.14);border-radius:11px;margin-top:14px}
+.insight-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.insight-text{font-size:12.5px;color:var(--text2);line-height:1.7}
+.insight-text strong{color:var(--text)}
 </style>
 </head>
 <body>
 
-<!-- SIDEBAR -->
+<!-- ====== SIDEBAR ====== -->
 <nav id="sidebar">
-  <div class="sidebar-logo">
-    <h1>ГениусЛаб</h1>
-    <p>Бизнес-план 2025</p>
+  <div class="sb-logo">
+    <div class="sb-logo-mark">
+      <div class="sb-icon">🧠</div>
+      <h1>ГениусЛаб</h1>
+    </div>
+    <p>Бизнес-план · 2026–2028</p>
   </div>
-  <div class="nav-section">Обзор</div>
-  <a class="nav-item active" href="#hero"><span class="dot"></span>Титульный лист</a>
-  <a class="nav-item" href="#problem"><span class="dot"></span>Проблема и решение</a>
-  <div class="nav-section">Маркетинг</div>
-  <a class="nav-item" href="#marketing"><span class="dot"></span>Комплекс 4P</a>
-  <a class="nav-item" href="#competitors"><span class="dot"></span>Конкуренты</a>
-  <div class="nav-section">Стратегия</div>
-  <a class="nav-item" href="#canvas"><span class="dot"></span>Бизнес-модель Canvas</a>
-  <a class="nav-item" href="#risks"><span class="dot"></span>Карта рисков</a>
-  <div class="nav-section">Финансы</div>
-  <a class="nav-item" href="#invest"><span class="dot"></span>Инвестиции</a>
-  <a class="nav-item" href="#finance"><span class="dot"></span>Финансовый прогноз</a>
-  <div class="nav-section">Реализация</div>
-  <a class="nav-item" href="#roadmap"><span class="dot"></span>Этапы и KPI</a>
-  <a class="nav-item" href="#ip"><span class="dot"></span>Интеллектуальная собственность</a>
-  <a class="nav-item" href="#partners"><span class="dot"></span>Партнёры</a>
-  <div class="sidebar-badge">
+
+  <div class="sb-sect">Обзор</div>
+  <a class="nav-item" data-target="hero"><span class="nav-dot"></span>Титульный лист</a>
+  <a class="nav-item" data-target="problem"><span class="nav-dot"></span>Проблема и решение</a>
+
+  <div class="sb-sect">Маркетинг</div>
+  <a class="nav-item" data-target="marketing"><span class="nav-dot"></span>Комплекс 4P</a>
+  <a class="nav-item" data-target="competitors"><span class="nav-dot"></span>Конкуренты</a>
+
+  <div class="sb-sect">Стратегия</div>
+  <a class="nav-item" data-target="canvas"><span class="nav-dot"></span>Бизнес-модель Canvas</a>
+  <a class="nav-item" data-target="risks"><span class="nav-dot"></span>Карта рисков</a>
+  <a class="nav-item" data-target="riskanalysis"><span class="nav-dot"></span>Анализ рисков</a>
+
+  <div class="sb-sect">Финансы</div>
+  <a class="nav-item" data-target="invest"><span class="nav-dot"></span>Инвестиции</a>
+  <a class="nav-item" data-target="finance"><span class="nav-dot"></span>Финансовый прогноз</a>
+
+  <div class="sb-sect">Реализация</div>
+  <a class="nav-item" data-target="roadmap"><span class="nav-dot"></span>Этапы и KPI</a>
+  <a class="nav-item" data-target="team"><span class="nav-dot"></span>Команда</a>
+  <a class="nav-item" data-target="ip"><span class="nav-dot"></span>Интеллект. собственность</a>
+  <a class="nav-item" data-target="partners"><span class="nav-dot"></span>Партнёры</a>
+
+  <div class="sb-footer">
     <p>EdTech · B2C · SaaS</p>
-    <span>Стартап · Россия · 2025</span>
+    <span>Россия · Старт 2026</span>
   </div>
 </nav>
 
-<!-- MAIN -->
+<!-- ====== MAIN ====== -->
 <div id="main">
 
 <!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
+<section id="hero" class="section" style="border:none">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
   <div class="hero-grid"></div>
   <div style="position:relative">
-    <div class="hero-tag"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--accent)"></span>Предпринимательский проект · EdTech</div>
+    <div class="hero-kicker">
+      <div class="kicker-pulse"><div class="kicker-dot"></div></div>
+      EdTech · Адаптивное обучение · Старт Q1 2026
+    </div>
     <h1><em>ГениусЛаб</em><br>Умное образование<br>для каждого</h1>
-    <p class="hero-sub">Адаптивная ИИ-платформа персонализированного обучения для школьников 5–11 классов. Подготовка к ОГЭ и ЕГЭ за 990 ₽/мес вместо 20 000 ₽ на репетиторов.</p>
-    <div class="hero-metrics">
+    <p class="hero-sub">Адаптивная ИИ-платформа персонализированного обучения для школьников 5–11 кл. Подготовка к ОГЭ/ЕГЭ за 850 ₽/мес вместо 15 000–25 000 ₽ на репетиторов.</p>
+    <div class="hero-metrics fade-in">
       <div class="hero-metric"><div class="val">12M+</div><div class="lbl">Целевая аудитория (школьники РФ)</div></div>
-      <div class="hero-metric"><div class="val">890₽</div><div class="lbl">Базовый тариф в месяц</div></div>
-      <div class="hero-metric"><div class="val">78%</div><div class="lbl">Маржинальность продукта</div></div>
-      <div class="hero-metric"><div class="val">36мес</div><div class="lbl">Срок выхода на окупаемость</div></div>
+      <div class="hero-metric"><div class="val">850₽</div><div class="lbl">Средний блендед-тариф в месяц</div></div>
+      <div class="hero-metric"><div class="val">77%</div><div class="lbl">Валовая маржа (Gross Margin)</div></div>
+      <div class="hero-metric"><div class="val">~20 мес</div><div class="lbl">Выход на ежемесячный EBITDA+</div></div>
     </div>
   </div>
-  <div class="hero-scroll">Листайте вниз</div>
 </section>
 
 <!-- PROBLEM -->
 <section id="problem" class="section">
   <div class="s-tag"><span class="s-num">01</span>Проблема и решение</div>
   <h2 class="s-title">Рынок сломан.<br>Мы его чиним.</h2>
-  <p class="s-desc">60% выпускников российских школ считают, что недостаточно подготовлены к ЕГЭ. Репетиторы недоступны миллионам семей. Онлайн-курсы не адаптируются под ребёнка.</p>
-  <div class="ps-split">
-    <div class="ps-block prob fade-in">
+  <p class="s-desc">60% выпускников российских школ считают, что недостаточно подготовлены к ЕГЭ. Репетиторы недоступны миллионам семей. Существующие онлайн-курсы не адаптируются под ребёнка.</p>
+  <div class="ps-split fade-in">
+    <div class="ps-block prob">
       <div class="ps-accent">✗</div>
       <h3>😰 Проблема</h3>
       <ul>
-        <li>Репетитор стоит 1 500–3 000 ₽/час, недоступен для 70% семей</li>
-        <li>Онлайн-курсы статичны — нет адаптации под конкретного ребёнка</li>
-        <li>Учитель в классе не может уделить индивидуальное время</li>
-        <li>Родители не видят реального прогресса в режиме реального времени</li>
-        <li>Подготовка к ЕГЭ стоит семьям в среднем 180 000–300 000 ₽</li>
-        <li>Разрыв в качестве образования между городом и регионами растёт</li>
+        <li>Репетитор: 1 500–3 500 ₽/час. Подготовка к ЕГЭ по 2 предметам — 180 000–300 000 ₽/год</li>
+        <li>Онлайн-курсы статичны: один контент для всех, нет адаптации под конкретного ребёнка</li>
+        <li>Учитель в классе ведёт 30+ учеников, индивидуальный подход — исключение, не норма</li>
+        <li>Родители не видят реального прогресса, платят «вслепую»</li>
+        <li>Региональные школьники в 2–3× хуже подготовлены из-за нехватки репетиторов</li>
+        <li>Колоссальный разрыв между Москвой и регионами в доступе к качеству</li>
       </ul>
     </div>
-    <div class="ps-block sol fade-in">
+    <div class="ps-block sol">
       <div class="ps-accent" style="color:var(--green)">✓</div>
       <h3>🚀 Решение</h3>
       <ul>
-        <li>ИИ-анализ пробелов за 20 минут при первом входе</li>
-        <li>Персональный план на каждый день, адаптируется в реальном времени</li>
-        <li>Объяснение темы 3 разными способами, пока ученик не поймёт</li>
-        <li>Еженедельный отчёт для родителей с прогрессом и рекомендациями</li>
-        <li>Цена подписки в 20–30× дешевле живого репетитора</li>
-        <li>Работает в браузере и приложении — доступно из любого региона</li>
+        <li>ИИ-диагностика пробелов за 20 минут при регистрации — сразу понятно, с чего начать</li>
+        <li>Персональный план обновляется ежедневно на основе результатов предыдущих занятий</li>
+        <li>ИИ объясняет тему 3 разными способами, пока ученик не поймёт по-настоящему</li>
+        <li>Дашборд для родителей: еженедельный отчёт, динамика по темам, прогноз балла ЕГЭ</li>
+        <li>Цена подписки в 17–29× дешевле живого репетитора при сопоставимой эффективности</li>
+        <li>Работает в браузере и приложении — доступно из любого региона России</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- MARKETING -->
+<!-- MARKETING 4P -->
 <section id="marketing" class="section">
   <div class="s-tag"><span class="s-num">02</span>Маркетинг</div>
-  <h2 class="s-title">Комплекс маркетинга<br>4P</h2>
+  <h2 class="s-title">Комплекс маркетинга 4P</h2>
   <div class="p4-tabs">
-    <button class="p4-tab active" onclick="showTab('product')">🛍 Продукт</button>
-    <button class="p4-tab" onclick="showTab('price')">💰 Цена</button>
-    <button class="p4-tab" onclick="showTab('place')">🚚 Каналы сбыта</button>
-    <button class="p4-tab" onclick="showTab('promo')">📣 Продвижение</button>
+    <button class="p4-tab active" onclick="showTab('product',this)">🛍 Продукт</button>
+    <button class="p4-tab" onclick="showTab('price',this)">💰 Цена</button>
+    <button class="p4-tab" onclick="showTab('place',this)">🚚 Каналы сбыта</button>
+    <button class="p4-tab" onclick="showTab('promo',this)">📣 Продвижение</button>
   </div>
 
   <!-- PRODUCT -->
@@ -378,29 +422,26 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);disp
     <div class="level-ring">
       <div class="level-item fade-in">
         <div class="level-left"><div class="level-num">1</div><div class="level-name">Замысел</div></div>
-        <div class="level-line"></div>
         <div class="level-content">
-          <div class="level-title">Ключевая идея — что покупает клиент</div>
-          <div class="level-text">Родитель покупает не уроки и не подписку. Он покупает <strong>уверенность</strong> своего ребёнка и <strong>спокойствие</strong> за результат на экзамене. Ученик получает ощущение прогресса и мотивацию учиться каждый день.</div>
-          <div class="level-chips"><span class="chip ac">Уверенность в знаниях</span><span class="chip ac">Спокойствие родителей</span><span class="chip ac">Результат на ЕГЭ</span></div>
+          <div class="level-title">Ключевая идея — что реально покупает клиент</div>
+          <div class="level-text">Родитель покупает не уроки и не доступ к видео. Он покупает <strong>уверенность ребёнка</strong> в своих знаниях и <strong>спокойствие за результат на экзамене</strong>. Ученик получает ощущение ежедневного прогресса и внутреннюю мотивацию учиться регулярно — без давления.</div>
+          <div class="level-chips"><span class="chip ac">Уверенность в знаниях</span><span class="chip ac">Спокойствие родителей</span><span class="chip ac">Результат на ЕГЭ/ОГЭ</span><span class="chip ac">Равный доступ из регионов</span></div>
         </div>
       </div>
       <div class="level-item fade-in">
         <div class="level-left"><div class="level-num">2</div><div class="level-name">Реальное</div></div>
-        <div class="level-line"></div>
         <div class="level-content">
           <div class="level-title">Товар в реальном исполнении</div>
-          <div class="level-text">Веб-приложение + мобильное приложение (iOS/Android). ИИ-диагностика пробелов, персональный план, видеоуроки, интерактивные тренажёры, симуляторы ОГЭ/ЕГЭ с хронометражом, геймификация. 9 предметов: математика, русский, физика, химия, биология, история, обществознание, английский, информатика.</div>
-          <div class="level-chips"><span class="chip">ИИ-диагностика</span><span class="chip">Персональный план</span><span class="chip">Тренажёры ОГЭ/ЕГЭ</span><span class="chip">Геймификация</span><span class="chip">9 предметов</span><span class="chip">iOS + Android</span></div>
+          <div class="level-text">Веб-приложение + мобильное приложение (iOS/Android). ИИ-диагностика пробелов, персональный ежедневный план, видеоуроки (собственные), интерактивные тренажёры, симуляторы ОГЭ/ЕГЭ с хронометражом и разбором ошибок, система «объяснения тремя способами», геймификация (стрики, очки, уровни). MVP — 4 предмета, полный запуск — 9 предметов.</div>
+          <div class="level-chips"><span class="chip">ИИ-диагностика</span><span class="chip">Персональный план</span><span class="chip">Симуляторы ОГЭ/ЕГЭ</span><span class="chip">Геймификация</span><span class="chip">9 предметов</span><span class="chip">iOS + Android</span><span class="chip">Дашборд родителей</span></div>
         </div>
       </div>
       <div class="level-item fade-in">
         <div class="level-left"><div class="level-num">3</div><div class="level-name">Поддержка</div></div>
-        <div class="level-line" style="background:linear-gradient(rgba(0,201,255,.2),transparent)"></div>
         <div class="level-content">
           <div class="level-title">Добавленная ценность и сопровождение</div>
-          <div class="level-text">Чат-поддержка 7/7, ответ до 2 часов. Живые Q&A с методистами еженедельно. Сообщество учеников в Discord. Бесплатный пробный период 14 дней. Гарантия возврата за 30 дней. Ежемесячное обновление контента под актуальные КИМы ФИПИ.</div>
-          <div class="level-chips"><span class="chip">14 дней бесплатно</span><span class="chip">30 дней возврат</span><span class="chip">Q&A с методистами</span><span class="chip">Discord-сообщество</span></div>
+          <div class="level-text">Чат-поддержка 7/7, ответ до 4 часов (Y1), до 1 часа (Y2+). Живые еженедельные Q&A с методистами. Discord-сообщество учеников. Бесплатный пробный период 14 дней без привязки карты. Гарантия возврата средств за 30 дней. Ежемесячное обновление заданий под актуальные КИМы ФИПИ. Уведомления для родителей через Telegram-бота.</div>
+          <div class="level-chips"><span class="chip">14 дней бесплатно</span><span class="chip">30 дней возврат</span><span class="chip">Q&A с методистами</span><span class="chip">Discord-сообщество</span><span class="chip">Telegram-бот</span></div>
         </div>
       </div>
     </div>
@@ -408,103 +449,80 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);disp
 
   <!-- PRICE -->
   <div id="tab-price" class="p4-panel">
-    <div class="card fade-in" style="margin-bottom:24px">
-      <div class="card-title">Принцип ценообразования</div>
-      <div style="font-size:14px;color:var(--text2);line-height:1.8;margin-top:8px">
-        Смешанная модель: <strong style="color:var(--text)">Издержки + наценка</strong> + <strong style="color:var(--text)">ориентация на конкурентов</strong>. Себестоимость 1 подписчика — ~195 ₽/мес (хостинг, ИИ-API, контент, поддержка). Наценка 78% выводит нас на 890 ₽ — ниже Фоксфорда и Учи.ру Pro, что создаёт ценовое конкурентное преимущество при сопоставимом функционале.
+    <div class="card fade-in" style="margin-bottom:20px">
+      <div class="card-title">Принцип ценообразования — смешанная модель</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.85;margin-top:8px">
+        <strong style="color:var(--text)">Метод 1: Издержки + наценка.</strong> Себестоимость 1 подписчика ~195 ₽/мес. Маржа 77% → базовая цена 850 ₽.<br>
+        <strong style="color:var(--text)">Метод 2: Ориентация на конкурентов.</strong> Учи.ру Pro ~990 ₽, Фоксфорд ~1 800 ₽. Позиционируемся ниже Фоксфорда при большем функционале.<br>
+        <strong style="color:var(--text)">Метод 3: Ценность для клиента.</strong> Живой репетитор = 1 500–3 500 ₽/час. Экономия 17–29× — ключевой аргумент продаж.
       </div>
     </div>
-    <div class="grid-4 fade-in" style="margin-bottom:32px">
-      <div class="card"><div class="card-title">Хостинг AWS</div><div class="card-val">~15 ₽</div><div class="card-sub">на 1 подписчика/мес</div></div>
-      <div class="card"><div class="card-title">ИИ-API</div><div class="card-val">~40 ₽</div><div class="card-sub">GPT / YandexGPT</div></div>
-      <div class="card"><div class="card-title">Контент</div><div class="card-val">~60 ₽</div><div class="card-sub">амортизация создания</div></div>
-      <div class="card"><div class="card-title">Поддержка</div><div class="card-val">~80 ₽</div><div class="card-sub">операционные расходы</div></div>
+    <div class="grid-4 fade-in" style="margin-bottom:18px">
+      <div class="cost-row" style="border-radius:10px;border:1px solid var(--border)"><div class="cost-label">☁ Хостинг AWS</div><div class="cost-val">~15 ₽/мес</div></div>
+      <div class="cost-row" style="border-radius:10px;border:1px solid var(--border)"><div class="cost-label">🤖 ИИ-API (YaGPT)</div><div class="cost-val">~40 ₽/мес</div></div>
+      <div class="cost-row" style="border-radius:10px;border:1px solid var(--border)"><div class="cost-label">📚 Контент (амортиз.)</div><div class="cost-val">~60 ₽/мес</div></div>
+      <div class="cost-row" style="border-radius:10px;border:1px solid var(--border)"><div class="cost-label">👤 Поддержка, операц.</div><div class="cost-val">~80 ₽/мес</div></div>
     </div>
+    <div style="text-align:center;font-size:12px;color:var(--text3);margin-bottom:18px">Итого себестоимость: <strong style="color:var(--accent)">~195 ₽/мес/подписчик</strong> → блендед-цена <strong style="color:var(--accent)">850 ₽</strong> → маржа <strong style="color:var(--green)">77%</strong></div>
     <div class="price-grid fade-in">
-      <div class="price-card">
-        <div class="price-name">Старт</div>
-        <div class="price-val">490 ₽</div>
-        <div class="price-period">/месяц</div>
-        <div class="price-feature">1 предмет<br>Базовая диагностика<br>Тренажёры</div>
-      </div>
-      <div class="price-card featured">
-        <div class="price-name">Базовый</div>
-        <div class="price-val">890 ₽</div>
-        <div class="price-period">/месяц</div>
-        <div class="price-feature">3 предмета<br>ИИ-план<br>Отчёты для родителей</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">ЕГЭ Pro</div>
-        <div class="price-val">1 490 ₽</div>
-        <div class="price-period">/месяц</div>
-        <div class="price-feature">Все предметы<br>Живые Q&A<br>Приоритет поддержки</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Годовая</div>
-        <div class="price-val">−20%</div>
-        <div class="price-period">любой тариф</div>
-        <div class="price-feature">Оплата раз в год<br>Скидка 20%<br>+ бонусный месяц</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Семейный</div>
-        <div class="price-val">1 990 ₽</div>
-        <div class="price-period">/месяц</div>
-        <div class="price-feature">До 3 детей<br>Все предметы<br>Общий дашборд</div>
-      </div>
+      <div class="price-card"><div class="price-name">Старт</div><div class="price-val">490 ₽</div><div class="price-period">/месяц</div><div class="price-feature">1 предмет<br>Диагностика<br>Тренажёры</div></div>
+      <div class="price-card featured"><div class="price-name">Базовый</div><div class="price-val">890 ₽</div><div class="price-period">/месяц</div><div class="price-feature">3 предмета<br>ИИ-план<br>Дашборд родителей</div></div>
+      <div class="price-card"><div class="price-name">ЕГЭ Pro</div><div class="price-val">1 490 ₽</div><div class="price-period">/месяц</div><div class="price-feature">Все предметы<br>Живые Q&A<br>Приоритет поддержки</div></div>
+      <div class="price-card"><div class="price-name">Годовой</div><div class="price-val">−20%</div><div class="price-period">любой тариф</div><div class="price-feature">Оплата раз в год<br>+бонусный месяц<br>Фиксация цены</div></div>
+      <div class="price-card"><div class="price-name">Семейный</div><div class="price-val">1 990 ₽</div><div class="price-period">/месяц</div><div class="price-feature">До 3 детей<br>Все предметы<br>Общий дашборд</div></div>
     </div>
+    <div class="note fade-in" style="margin-top:16px"><strong>Блендед-тариф ~850 ₽</strong>: ~60% Базовый (890 ₽), ~20% Старт (490 ₽), ~15% ЕГЭ Pro (1 490 ₽), ~5% Семейный. Взвешенное среднее ≈ 850 ₽ — эта цифра используется во всех финансовых расчётах.</div>
   </div>
 
   <!-- PLACE -->
   <div id="tab-place" class="p4-panel">
-    <div class="grid-2 fade-in" style="margin-bottom:32px">
+    <div class="grid-2 fade-in" style="margin-bottom:24px">
       <div class="card">
-        <div class="card-title">🔵 Нулевой уровень (прямой)</div>
-        <div style="font-size:14px;color:var(--text2);line-height:1.8;margin-top:8px">
-          <strong style="color:var(--text)">Сайт geniuslab.ru</strong> — основная точка продаж, SEO-трафик, landing pages под каждый предмет.<br><br>
-          <strong style="color:var(--text)">Мобильное приложение</strong> — App Store, Google Play, встроенные покупки (In-App Purchase).
+        <div class="card-title">🔵 Нулевой уровень (прямые продажи)</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.85;margin-top:8px">
+          <strong style="color:var(--text)">Сайт geniuslab.ru</strong> — основная точка, SEO-трафик, landing pages под каждый предмет и запрос «подготовка к ЕГЭ по [предмету]».<br><br>
+          <strong style="color:var(--text)">Мобильное приложение</strong> — App Store, Google Play. Встроенные покупки (IAP). Пуш-уведомления для удержания.
         </div>
       </div>
       <div class="card">
-        <div class="card-title">🟡 Одноуровневый (с посредниками)</div>
-        <div style="font-size:14px;color:var(--text2);line-height:1.8;margin-top:8px">
-          <strong style="color:var(--text)">Школы-партнёры</strong> — рекомендуют платформу ученикам за комиссию или белый лейбл.<br><br>
-          <strong style="color:var(--text)">Агрегаторы</strong> — СберПрайм, Т-Банк Подписки, Profi.ru листинг.
+        <div class="card-title">🟡 Одноуровневый (через посредников)</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.85;margin-top:8px">
+          <strong style="color:var(--text)">Школы-партнёры</strong> — рекомендуют ученикам за комиссию 10% или white-label лицензию. Цель: 30 школ к концу Y1.<br><br>
+          <strong style="color:var(--text)">Агрегаторы подписок</strong> — СберПрайм, Т-Подписка. Доступ к 5–15 млн семей без CAC.
         </div>
       </div>
     </div>
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:32px;text-align:center" class="fade-in">
-      <div style="font-size:12px;color:var(--text3);margin-bottom:24px;text-transform:uppercase;letter-spacing:.8px">Схема движения клиента</div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px;text-align:center" class="fade-in">
+      <div style="font-size:10px;color:var(--text3);margin-bottom:20px;text-transform:uppercase;letter-spacing:.9px">Воронка клиента (CJM)</div>
       <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0">
-        <div class="channel-node"><h4>Реклама</h4><p>VK / Яндекс</p></div>
-        <div class="channel-arrow">→</div>
-        <div class="channel-node" style="border-color:rgba(0,201,255,.3)"><h4>Лендинг</h4><p>geniuslab.ru</p></div>
-        <div class="channel-arrow">→</div>
-        <div class="channel-node"><h4>14 дней</h4><p>бесплатно</p></div>
-        <div class="channel-arrow">→</div>
-        <div class="channel-node" style="border-color:var(--accent);background:rgba(0,201,255,.07)"><h4>Подписка</h4><p>890 ₽/мес</p></div>
-        <div class="channel-arrow">→</div>
-        <div class="channel-node"><h4>Удержание</h4><p>реферал</p></div>
+        <div class="channel-node"><h4>Реклама</h4><p>VK / Яндекс</p></div><div class="channel-arrow">→</div>
+        <div class="channel-node" style="border-color:rgba(59,130,246,.3)"><h4>Лендинг</h4><p>geniuslab.ru</p></div><div class="channel-arrow">→</div>
+        <div class="channel-node"><h4>14 дней</h4><p>бесплатно</p></div><div class="channel-arrow">→</div>
+        <div class="channel-node" style="border-color:var(--accent);background:rgba(59,130,246,.06)"><h4>Оплата</h4><p>~850 ₽/мес</p></div><div class="channel-arrow">→</div>
+        <div class="channel-node"><h4>Удержание</h4><p>Реферал + LTV</p></div>
       </div>
+      <div class="note" style="max-width:520px;margin:16px auto 0;text-align:left"><strong>Конверсия из триала:</strong> цель 25–30%. Бенчмарк EdTech — 15–25%. Для достижения верхней планки нужен сильный онбординг и реальный «aha-moment» за 3 дня.</div>
     </div>
   </div>
 
   <!-- PROMO -->
   <div id="tab-promo" class="p4-panel">
-    <div class="promo-grid fade-in">
-      <div class="promo-card"><div class="promo-icon">📹</div><h4>Контент-маркетинг</h4><p>YouTube-канал с разборами задач ЕГЭ. Telegram: советы, лайфхаки, мотивация. SEO-блог «Как подготовиться к ЕГЭ с нуля».</p><div class="promo-budget">Бюджет: 80 000 ₽/мес</div></div>
-      <div class="promo-card"><div class="promo-icon">🎯</div><h4>Таргетированная реклама</h4><p>ВКонтакте по интересам «ЕГЭ», «репетиторы» + lookalike. Яндекс.Директ по ключам «подготовка к ЕГЭ». TikTok Ads — вирусный формат разборов.</p><div class="promo-budget">Бюджет: 150 000 ₽/мес</div></div>
-      <div class="promo-card"><div class="promo-icon">🤝</div><h4>Партнёрский маркетинг</h4><p>Реферальная программа: +1 месяц за друга. Инфлюенсеры: учителя-блогеры, родительские Telegram-каналы.</p><div class="promo-budget">Бюджет: 60 000 ₽/мес</div></div>
-      <div class="promo-card"><div class="promo-icon">📰</div><h4>PR и медиа</h4><p>Публикации в «Мел», «РИА Новости Образование». Участие в EdCrunch. Пресс-релизы к сезону ЕГЭ (апр–май).</p><div class="promo-budget">Бюджет: 40 000 ₽/мес</div></div>
-      <div class="promo-card"><div class="promo-icon">🎓</div><h4>Образовательные события</h4><p>Бесплатные вебинары «Стратегия ЕГЭ 2026» для сбора лидов. Марафоны: 7 дней бесплатных занятий.</p><div class="promo-budget">Бюджет: 30 000 ₽/мес</div></div>
-      <div class="promo-card"><div class="promo-icon">🏫</div><h4>Школьный B2B</h4><p>Пилотные программы с 20 школами. Бесплатный доступ для учителей в обмен на рекомендации ученикам.</p><div class="promo-budget">Бюджет: 20 000 ₽/мес</div></div>
+    <div class="grid-3 fade-in">
+      <div class="promo-card"><div class="promo-icon">📹</div><h4>Контент-маркетинг</h4><p>YouTube-канал: разборы задач ЕГЭ. Telegram: советы, лайфхаки. SEO-блог «Как подготовиться к ЕГЭ по [предмету]». Органический трафик — самый дешёвый CAC.</p><div class="promo-budget">70 000 ₽/мес</div></div>
+      <div class="promo-card"><div class="promo-icon">🎯</div><h4>Performance-реклама</h4><p>ВКонтакте: таргет по «ЕГЭ», «репетиторы», lookalike. Яндекс.Директ: ключи «подготовка к ЕГЭ онлайн». TikTok / ВКонтакте видео — разборы задач.</p><div class="promo-budget">200 000 ₽/мес</div></div>
+      <div class="promo-card"><div class="promo-icon">🤝</div><h4>Реферальная программа</h4><p>+1 месяц бесплатно за каждого приведённого друга. Инфлюенсеры-учителя, родительские Telegram-каналы. CPA-сети.</p><div class="promo-budget">60 000 ₽/мес</div></div>
+      <div class="promo-card"><div class="promo-icon">📰</div><h4>PR и медиа</h4><p>Публикации в «Мел», «РИА Образование». EdCrunch. Пресс-релизы к сезону ЕГЭ (апр–май). Участие в конкурсах стартапов.</p><div class="promo-budget">30 000 ₽/мес</div></div>
+      <div class="promo-card"><div class="promo-icon">🎓</div><h4>Образовательные ивенты</h4><p>Бесплатные вебинары «Стратегия ЕГЭ 2027» — сбор лидов. 7-дневные марафоны бесплатных занятий. Пробные ОГЭ/ЕГЭ онлайн.</p><div class="promo-budget">30 000 ₽/мес</div></div>
+      <div class="promo-card"><div class="promo-icon">🏫</div><h4>B2B — школы</h4><p>Пилот с 30 школами-партнёрами. Бесплатный доступ для педагогов в обмен на рекомендации ученикам. Корпоративные лицензии.</p><div class="promo-budget">10 000 ₽/мес</div></div>
     </div>
-    <div class="card fade-in" style="margin-top:24px">
-      <div class="card-title">Сезонность продвижения</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
-        <span class="chip ac">Авг–Сен (старт учёбы)</span>
-        <span class="chip ac">Янв–Апр (пик ЕГЭ)</span>
+    <div class="note fade-in" style="margin-top:16px"><strong>Общий бюджет на маркетинг Y1: ~4 800 000 ₽/год (400 000 ₽/мес).</strong> При CAC = 3 500 ₽ → ~1 371 привлечённых клиентов. С учётом органики и реферала — целевой показатель 1 500 подписчиков к концу Y1.</div>
+    <div class="card fade-in" style="margin-top:14px">
+      <div class="card-title">Сезонность спроса</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <span class="chip ac">🔥 Авг–Сен (старт учёбы)</span>
+        <span class="chip ac">🔥 Янв–Апр (пик ЕГЭ)</span>
         <span class="chip">Ноя–Дек (Новый год)</span>
-        <span class="chip">Май–Июн (итоги)</span>
+        <span class="chip">Май–Июн (итоги, спад)</span>
       </div>
     </div>
   </div>
@@ -514,29 +532,22 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);disp
 <section id="competitors" class="section">
   <div class="s-tag"><span class="s-num">03</span>Рынок</div>
   <h2 class="s-title">Конкуренты и наши<br>преимущества</h2>
-  <p class="s-desc">Рынок EdTech в России составляет более 100 млрд ₽. Основные игроки не предлагают полной адаптивности на базе ИИ по доступной цене.</p>
-  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:32px" class="fade-in">
+  <p class="s-desc">Рынок EdTech в России — 120+ млрд ₽ и растёт ~20%/год. Ключевые игроки не предоставляют полной ИИ-адаптации по доступной цене. Главная угроза — Яндекс.Учебник и VK Education.</p>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:auto;margin-bottom:24px" class="fade-in">
     <table class="comp-table">
-      <thead>
-        <tr>
-          <th>Продукт</th>
-          <th>Цена/мес</th>
-          <th>ИИ-адаптация</th>
-          <th>Отчёты родителям</th>
-          <th>Все предметы</th>
-          <th>Тренажёры ОГЭ/ЕГЭ</th>
-          <th>Гарантия возврата</th>
-        </tr>
-      </thead>
+      <thead><tr>
+        <th>Продукт</th><th>Цена/мес</th><th>ИИ-адаптация</th><th>Отчёты родителям</th><th>Все предметы</th><th>Симуляторы ЕГЭ</th><th>Гарантия возврата</th><th>Угроза для нас</th>
+      </tr></thead>
       <tbody>
         <tr class="us">
           <td><span class="badge us-b">⭐ ГениусЛаб</span></td>
-          <td><strong>890 ₽</strong></td>
+          <td><strong>850 ₽</strong></td>
           <td class="yes">✓ Полная</td>
           <td class="yes">✓ Еженедельно</td>
-          <td class="yes">✓ 9 предметов</td>
+          <td class="yes">✓ 9 предм.</td>
           <td class="yes">✓ С разбором</td>
           <td class="yes">✓ 30 дней</td>
+          <td style="color:var(--text3)">—</td>
         </tr>
         <tr>
           <td><span class="badge comp-b">Учи.ру</span></td>
@@ -546,6 +557,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);disp
           <td class="yes">✓</td>
           <td class="part">~ Базовые</td>
           <td class="no">✗</td>
+          <td class="warn">Средняя</td>
         </tr>
         <tr>
           <td><span class="badge comp-b">Фоксфорд</span></td>
@@ -555,15 +567,27 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);disp
           <td class="yes">✓</td>
           <td class="yes">✓</td>
           <td class="no">✗</td>
+          <td class="warn">Средняя</td>
         </tr>
         <tr>
-          <td><span class="badge comp-b">Skyeng</span></td>
-          <td>3 200 ₽</td>
-          <td class="part">~ Только English</td>
-          <td class="part">~ Базовые</td>
-          <td class="no">✗ Только English</td>
+          <td><span class="badge comp-b">Яндекс.Учебник</span></td>
+          <td>0–500 ₽</td>
+          <td class="part">~ Частичная</td>
+          <td class="yes">✓</td>
+          <td class="part">~ 5–6 предм.</td>
+          <td class="part">~ Элем.</td>
+          <td class="no">✗</td>
+          <td style="color:var(--rose)">🔴 Высокая</td>
+        </tr>
+        <tr>
+          <td><span class="badge comp-b">VK Education</span></td>
+          <td>700–1 200 ₽</td>
+          <td class="part">~ Развивается</td>
+          <td class="no">✗</td>
+          <td class="part">~ Часть</td>
           <td class="no">✗</td>
           <td class="no">✗</td>
+          <td style="color:var(--rose)">🔴 Высокая</td>
         </tr>
         <tr>
           <td><span class="badge comp-b">Репетитор (живой)</span></td>
@@ -573,113 +597,117 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);disp
           <td class="no">✗ 1 предмет</td>
           <td class="no">✗</td>
           <td class="no">✗</td>
+          <td style="color:var(--text3)">Косвенная</td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="grid-3 fade-in">
-    <div class="card"><h4 style="margin-bottom:8px;font-size:15px">🤖 ИИ-первый подход</h4><p style="font-size:13px;color:var(--text2);line-height:1.6">Единственная платформа с полной адаптацией через ИИ: план, объяснения, темп — всё персонально.</p></div>
-    <div class="card"><h4 style="margin-bottom:8px;font-size:15px">👨‍👩‍👧 Прозрачность для семьи</h4><p style="font-size:13px;color:var(--text2);line-height:1.6">Еженедельные отчёты для родителей — конкуренты не дают такой видимости в реальном времени.</p></div>
-    <div class="card"><h4 style="margin-bottom:8px;font-size:15px">💸 Ценовой разрыв</h4><p style="font-size:13px;color:var(--text2);line-height:1.6">В 2× дешевле Фоксфорда и в 17× дешевле репетитора при большем функционале и охвате.</p></div>
+    <div class="card"><h4 style="margin-bottom:7px;font-size:14px">🤖 ИИ-первый подход</h4><p style="font-size:12.5px;color:var(--text2);line-height:1.6">Единственная платформа с полной ИИ-адаптацией: план, объяснения, темп — всё персонально. Яндекс и VK имеют ресурсы, но пока не фокусируются на глубокой адаптации.</p></div>
+    <div class="card"><h4 style="margin-bottom:7px;font-size:14px">👨‍👩‍👧 Прозрачность для семьи</h4><p style="font-size:12.5px;color:var(--text2);line-height:1.6">Родительский дашборд с детальной аналитикой — ни один конкурент не даёт сопоставимой видимости. Это важнейший фактор принятия решения о подписке.</p></div>
+    <div class="card"><h4 style="margin-bottom:7px;font-size:14px">⚡ Нишевый фокус</h4><p style="font-size:12.5px;color:var(--text2);line-height:1.6">Мы сфокусированы только на школьниках 5–11 кл. и экзаменах. Яндекс и VK — универсальные платформы. Глубина против широты — выигрышная стратегия в нише.</p></div>
   </div>
 </section>
 
 <!-- CANVAS -->
 <section id="canvas" class="section">
   <div class="s-tag"><span class="s-num">04</span>Бизнес-модель</div>
-  <h2 class="s-title">Canvas-модель<br>компании</h2>
-  <p class="s-desc">Ключевые блоки бизнес-модели по методу Остервальдера — от партнёров до потоков доходов.</p>
+  <h2 class="s-title">Canvas-модель компании<br><span style="font-size:24px;color:var(--text2)">(Остервальдер)</span></h2>
   <div class="canvas-grid fade-in">
     <div class="canvas-cell">
       <h4>🤝 Ключевые партнёры</h4>
       <ul>
-        <li>Яндекс Облако / AWS — хостинг и ИИ</li>
-        <li>Министерство просвещения — методология</li>
-        <li>Школы и лицеи — B2B-каналы</li>
-        <li>Издательства учебников</li>
-        <li>Блогеры и EdTech-инфлюенсеры</li>
-        <li>Банки — СберПрайм, Т-Банк</li>
+        <li>Яндекс Облако / AWS — хостинг и ИИ-API</li>
+        <li>Школы и лицеи — B2B-канал дистрибуции</li>
+        <li>Издательства «Просвещение» — методология, ФГОС</li>
+        <li>Фонд Сколково — грант и экосистема</li>
+        <li>СберПрайм, Т-Подписка — дистрибуция</li>
+        <li>Инфлюенсеры, учителя-блогеры</li>
       </ul>
     </div>
     <div class="canvas-cell">
-      <h4>⚙️ Ключевые виды деятельности</h4>
+      <h4>⚙️ Ключевые активности</h4>
       <ul>
-        <li>Разработка и поддержка ИИ-алгоритмов</li>
-        <li>Создание учебного контента</li>
-        <li>Привлечение пользователей (CAC)</li>
+        <li>Разработка ИИ-алгоритма адаптации</li>
+        <li>Создание и обновление контента (ФИПИ)</li>
+        <li>Привлечение пользователей (performance)</li>
         <li>Удержание подписчиков (Retention)</li>
-        <li>Партнёрство со школами</li>
+        <li>Партнёрство со школами (B2B)</li>
+        <li>Поддержка и онбординг</li>
       </ul>
     </div>
     <div class="canvas-cell canvas-vp" style="grid-row:span 2">
       <h4>💡 Ценностное предложение</h4>
       <ul>
-        <li>Персональный ИИ-репетитор 24/7</li>
-        <li>Диагностика пробелов за 20 мин</li>
+        <li>ИИ-репетитор 24/7 за 850 ₽/мес</li>
+        <li>Диагностика пробелов за 20 минут</li>
         <li>Объяснение темы 3 способами</li>
-        <li>Симуляторы реальных ОГЭ/ЕГЭ</li>
-        <li>Видимость для родителей</li>
-        <li>Геймификация — учёба как игра</li>
-        <li>Доступная цена (890 ₽/мес)</li>
+        <li>Реальные симуляторы ОГЭ/ЕГЭ</li>
+        <li>Еженедельные отчёты для родителей</li>
+        <li>Геймификация — стрики, уровни</li>
+        <li>Прогноз балла ЕГЭ по динамике</li>
         <li>Гарантия возврата 30 дней</li>
+        <li>Доступно из любого региона РФ</li>
       </ul>
     </div>
     <div class="canvas-cell">
       <h4>❤️ Взаимодействие с клиентами</h4>
       <ul>
-        <li>Онбординг: диагностика + план</li>
-        <li>Пуш-уведомления, «стрики»</li>
-        <li>Еженедельные отчёты для родителей</li>
+        <li>Онбординг: диагностика → план → первый урок</li>
+        <li>Пуш-уведомления, ежедневные стрики</li>
+        <li>Еженедельный отчёт для родителей</li>
         <li>Чат-поддержка 7/7</li>
-        <li>Реферальная программа</li>
+        <li>Реферальная программа (+1 мес)</li>
+        <li>Еженедельные Q&A с методистами</li>
       </ul>
     </div>
     <div class="canvas-cell" style="grid-row:span 2">
-      <h4>👥 Потребительские сегменты</h4>
+      <h4>👥 Потреб. сегменты</h4>
       <ul>
-        <li><strong style="color:var(--text)">Основной:</strong> школьники 9–11 кл, готовящиеся к ЕГЭ</li>
-        <li><strong style="color:var(--text)">Вторичный:</strong> школьники 5–8 кл, успеваемость</li>
+        <li><strong style="color:var(--text)">Ядро:</strong> школьники 9–11 кл., готовящиеся к ЕГЭ</li>
+        <li><strong style="color:var(--text)">Вторичный:</strong> школьники 5–8 кл., успеваемость</li>
         <li><strong style="color:var(--text)">Плательщик:</strong> родители 30–45 лет</li>
         <li><strong style="color:var(--text)">B2B:</strong> школы, лицеи, гимназии</li>
+        <li><strong style="color:var(--text)">B2G:</strong> региональные МинОбр</li>
       </ul>
     </div>
     <div class="canvas-cell">
       <h4>🔑 Ключевые ресурсы</h4>
       <ul>
-        <li>ИИ-алгоритм адаптации</li>
-        <li>База учебного контента (9 предм.)</li>
-        <li>Команда разработки и методистов</li>
-        <li>Бренд и данные пользователей</li>
+        <li>ИИ-алгоритм адаптации (ноу-хау)</li>
+        <li>База контента (9 предм., тысячи задач)</li>
+        <li>Команда: 11 чел. Y1 → 20 чел. Y3</li>
+        <li>Данные пользователей (петля роста)</li>
+        <li>Бренд и сообщество</li>
       </ul>
     </div>
     <div class="canvas-cell">
       <h4>📱 Каналы сбыта</h4>
       <ul>
-        <li>Веб-сайт geniuslab.ru</li>
+        <li>Сайт geniuslab.ru (SEO + прямые)</li>
         <li>App Store / Google Play</li>
-        <li>Партнёрские школы</li>
+        <li>Школы-партнёры (B2B)</li>
         <li>ВКонтакте, Telegram, YouTube</li>
-        <li>Яндекс.Директ, SEO</li>
+        <li>СберПрайм, Т-Подписка</li>
       </ul>
     </div>
-    <div class="canvas-cell canvas-bottom">
+    <div class="canvas-cell canvas-bottom" style="grid-column:span 2">
       <h4>💸 Структура издержек</h4>
-      <ul>
-        <li>Разработка и IT-инфраструктура — 35%</li>
-        <li>Создание контента — 20%</li>
-        <li>Маркетинг и привлечение — 25%</li>
-        <li>Команда (зарплаты) — 15%</li>
-        <li>Административные — 5%</li>
+      <ul style="flex-direction:row;flex-wrap:wrap;gap:10px 20px">
+        <li>ФОТ команды — 44% расходов Y1</li>
+        <li>Разработка и IT-инфраструктура — 28%</li>
+        <li>Маркетинг и привлечение — 22%</li>
+        <li>Административные и юр. — 6%</li>
       </ul>
     </div>
     <div class="canvas-cell canvas-bottom" style="grid-column:span 3">
       <h4>💰 Потоки доходов</h4>
-      <ul style="flex-direction:row;flex-wrap:wrap;gap:16px">
-        <li>Подписка B2C (Старт / Базовый / ЕГЭ Pro / Семейный)</li>
+      <ul style="flex-direction:row;flex-wrap:wrap;gap:10px 20px">
+        <li>Подписка B2C — основной поток</li>
         <li>Годовая подписка со скидкой 20%</li>
-        <li>B2B-лицензии для школ</li>
-        <li>White label для региональных MinOb</li>
-        <li>Маркетплейс дополнительных курсов</li>
+        <li>B2B-лицензии для школ и лицеев</li>
+        <li>White label для региональных МинОбр (Y3+)</li>
+        <li>Маркетплейс курсов от партнёров (Y3+, комиссия 30%)</li>
       </ul>
     </div>
   </div>
@@ -687,24 +715,253 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);disp
 
 <!-- RISKS -->
 <section id="risks" class="section">
-  <div class="s-tag"><span class="s-num">05</span>Риски</div>
-  <h2 class="s-title">Карта рисков бизнеса</h2>
-  <p class="s-desc">Риски проекта отображены на координатной плоскости: ось X — вероятность события (%), ось Y — потенциальный убыток (₽ млн). Зона угрозы — правый верхний угол.</p>
-  <div class="card fade-in" style="margin-bottom:32px">
-    <canvas id="riskChart" height="420"></canvas>
+  <div class="s-tag"><span class="s-num">05</span>Карта рисков</div>
+  <h2 class="s-title">Матрица рисков бизнеса</h2>
+  <p class="s-desc">Риски отображены на координатной плоскости: ось X — вероятность события (%), ось Y — потенциальный убыток (₽ млн). Размер пузыря — критичность.</p>
+  <div class="card fade-in" style="margin-bottom:20px">
+    <div class="risk-matrix-wrap">
+      <canvas id="riskChart"></canvas>
+    </div>
+    <div class="risk-legend">
+      <div class="risk-zone"><div class="risk-dot" style="background:rgba(244,63,94,.7)"></div>Критические</div>
+      <div class="risk-zone"><div class="risk-dot" style="background:rgba(245,158,11,.7)"></div>Умеренные</div>
+      <div class="risk-zone"><div class="risk-dot" style="background:rgba(16,185,129,.7)"></div>Низкие</div>
+    </div>
   </div>
   <div class="grid-2 fade-in">
-    <div class="card"><div class="card-title" style="color:var(--red)">🔴 Критические риски</div>
-      <div style="font-size:13px;color:var(--text2);line-height:1.8;margin-top:8px">
-        <strong style="color:var(--text)">Выход крупного игрока</strong> (Яндекс.Учебник с ИИ) — вероятность 35%, убыток до 4 млн ₽. Митигация: быстрое наращивание базы и LTV.<br><br>
-        <strong style="color:var(--text)">Нехватка инвестиций</strong> — вероятность 30%, убыток до 5 млн ₽. Митигация: этапное финансирование, grants.
+    <div class="card">
+      <div class="card-title" style="color:var(--rose)">Критические риски и митигация</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+        <div style="padding:12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--rose)"><div style="font-size:13px;font-weight:600;margin-bottom:4px">Выход Яндекс/VK с ИИ-продуктом <span style="color:var(--text3);font-weight:400;font-size:11px">(45%, −10 млн ₽)</span></div><div style="font-size:12px;color:var(--text2)">Быстрый рост базы, LTV > CAC, нишевое доверие бренда</div></div>
+        <div style="padding:12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--rose)"><div style="font-size:13px;font-weight:600;margin-bottom:4px">Нехватка финансирования <span style="color:var(--text3);font-weight:400;font-size:11px">(35%, −18 млн ₽)</span></div><div style="font-size:12px;color:var(--text2)">Этапное расходование, гранты Сколково, резерв 3 мес.</div></div>
+        <div style="padding:12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--rose)"><div style="font-size:13px;font-weight:600;margin-bottom:4px">Высокий Churn > 10%/мес <span style="color:var(--text3);font-weight:400;font-size:11px">(50%, −6 млн ₽)</span></div><div style="font-size:12px;color:var(--text2)">Сильный онбординг, геймификация, пуши, ежемесячные отчёты</div></div>
       </div>
     </div>
-    <div class="card"><div class="card-title" style="color:var(--gold)">🟡 Умеренные риски</div>
-      <div style="font-size:13px;color:var(--text2);line-height:1.8;margin-top:8px">
-        <strong style="color:var(--text)">Отток пользователей</strong> — вероятность 50%, убыток 2 млн ₽. Митигация: геймификация, реферал, персонализация.<br><br>
-        <strong style="color:var(--text)">Технические сбои</strong> — вероятность 25%, убыток 1 млн ₽. Митигация: резервирование, мониторинг 24/7, SLA.
+    <div class="card">
+      <div class="card-title" style="color:var(--gold)">Умеренные риски и митигация</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+        <div style="padding:12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--gold)"><div style="font-size:13px;font-weight:600;margin-bottom:4px">Сложность привлечения ML-инженера <span style="color:var(--text3);font-weight:400;font-size:11px">(60%, −2 млн ₽)</span></div><div style="font-size:12px;color:var(--text2)">Опцион на долю (ESOP), гибкий формат, сеть МФТИ/Иннополис</div></div>
+        <div style="padding:12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--gold)"><div style="font-size:13px;font-weight:600;margin-bottom:4px">Технические сбои в сезон ЕГЭ <span style="color:var(--text3);font-weight:400;font-size:11px">(25%, −3 млн ₽)</span></div><div style="font-size:12px;color:var(--text2)">Резервирование AWS, load testing, SLA 99.9%, стресс-тест перед сезоном</div></div>
+        <div style="padding:12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--gold)"><div style="font-size:13px;font-weight:600;margin-bottom:4px">Изменение КИМов ФИПИ <span style="color:var(--text3);font-weight:400;font-size:11px">(30%, −1.5 млн ₽)</span></div><div style="font-size:12px;color:var(--text2)">Ежемесячное обновление, методист в штате, партнёрство с «Просвещением»</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISK ANALYSIS (new) -->
+<section id="riskanalysis" class="section">
+  <div class="s-tag"><span class="s-num">05А</span>Финансовый анализ рисков</div>
+  <h2 class="s-title">Углублённый анализ<br>и сценарии</h2>
+  <p class="s-desc">Реалистичная оценка рисков с финансовым выражением, сценарный анализ и таблица чувствительности ключевых метрик.</p>
+
+  <!-- Detailed risk table -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:auto;margin-bottom:28px" class="fade-in">
+    <table class="risk-table">
+      <thead><tr>
+        <th>Риск</th><th>Вер-ть</th><th>Убыток, млн ₽</th><th>Ожидаемый ущерб</th><th>Уровень</th><th>Митигация</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--text);font-weight:500">Выход Яндекс/VK с полноценным ИИ-репетитором</td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px">45%</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--rose)">10.0</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--rose)">4.5 млн</span></td>
+          <td><span class="risk-pill crit">КРИТИЧ.</span></td>
+          <td style="font-size:12px">Нишевый бренд, удержание базы до выхода конкурента, B2B как защитный ров</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500">Исчерпание финансирования раньше срока</td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px">35%</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--rose)">18.0</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--rose)">6.3 млн</span></td>
+          <td><span class="risk-pill crit">КРИТИЧ.</span></td>
+          <td style="font-size:12px">Лимит burn rate, Сколково-грант, pipeline параллельных инвесторов</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500">Churn выше 10%/мес (провал удержания)</td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px">50%</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--rose)">6.0</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--rose)">3.0 млн</span></td>
+          <td><span class="risk-pill crit">КРИТИЧ.</span></td>
+          <td style="font-size:12px">Онбординг за 3 дня, стрики, реальный «aha-moment», A/B тестирование удержания</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500">Найм ML-инженера по рыночной ставке</td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px">60%</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--gold)">2.0</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--gold)">1.2 млн</span></td>
+          <td><span class="risk-pill mod">УМЕРЕННЫЙ</span></td>
+          <td style="font-size:12px">ESOP 1–2%, гибрид удалёнка/офис, аутсорс в Иннополис на фазе R&D</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500">Технические сбои в пик сезона (апр–май)</td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px">25%</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--gold)">3.0</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--gold)">0.75 млн</span></td>
+          <td><span class="risk-pill mod">УМЕРЕННЫЙ</span></td>
+          <td style="font-size:12px">Multi-AZ архитектура AWS, ежемесячный load test, SLA 99.9% с компенсациями</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500">Ежегодное изменение структуры КИМов ФИПИ</td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px">30%</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--gold)">1.5</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--gold)">0.45 млн</span></td>
+          <td><span class="risk-pill mod">УМЕРЕННЫЙ</span></td>
+          <td style="font-size:12px">Методист в штате, контент-обновление раз в месяц, партнёрство с «Просвещением»</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500">Утечка данных / кибератака</td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px">20%</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--gold)">2.5</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--gold)">0.5 млн</span></td>
+          <td><span class="risk-pill mod">УМЕРЕННЫЙ</span></td>
+          <td style="font-size:12px">Шифрование данных, пентест 2×/год, bug bounty, локальное хранение (ФЗ-152)</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500">Уход сооснователя в первый год</td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px">20%</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--green)">0.8</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--green)">0.16 млн</span></td>
+          <td><span class="risk-pill low">НИЗКИЙ</span></td>
+          <td style="font-size:12px">Vesting 4 года с cliff 1 год, чёткие роли в SHA, резервирование IP-прав</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500">Регуляторные изменения в EdTech / ПД</td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px">15%</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--green)">1.2</span></td>
+          <td><span style="font-family:'DM Mono',monospace;font-size:11.5px;color:var(--green)">0.18 млн</span></td>
+          <td><span class="risk-pill low">НИЗКИЙ</span></td>
+          <td style="font-size:12px">Юридический консультант в штате с Y2, мониторинг регуляторики, GDPR-ready</td>
+        </tr>
+        <tr style="background:rgba(255,255,255,.02)">
+          <td style="font-weight:700;font-size:13px">Совокупный ожидаемый ущерб (EV)</td>
+          <td>—</td>
+          <td style="font-weight:700;font-family:'DM Mono',monospace;font-size:12px">45.0</td>
+          <td style="font-weight:700;font-family:'DM Mono',monospace;font-size:12px;color:var(--rose)">≈ 16.8 млн</td>
+          <td>—</td>
+          <td style="font-size:12px">Покрывается инвестиционным запасом 18 млн ₽ при условии митигации</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Scenario analysis -->
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:6px" class="fade-in">Сценарный анализ</h3>
+  <p style="font-size:13.5px;color:var(--text2);margin-bottom:20px;line-height:1.7" class="fade-in">Три возможных исхода по ключевым параметрам. Базовый сценарий используется в финансовых расчётах.</p>
+  <div class="scenario-grid fade-in">
+    <div class="scenario-card bear">
+      <div class="scenario-tag">🐻 Медвежий сценарий</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:12px">Яндекс активно захватывает рынок, Churn > 10%, трудности с наймом ML. Финансирование заканчивается к мес. 14.</div>
+      <div class="scenario-metric">
+        <div class="sc-row"><span class="sc-lbl">Подписчики Y1</span><span class="sc-val" style="color:var(--rose)">700</span></div>
+        <div class="sc-row"><span class="sc-lbl">Churn/мес</span><span class="sc-val" style="color:var(--rose)">11%</span></div>
+        <div class="sc-row"><span class="sc-lbl">CAC</span><span class="sc-val" style="color:var(--rose)">5 200 ₽</span></div>
+        <div class="sc-row"><span class="sc-lbl">Выручка Y1</span><span class="sc-val" style="color:var(--rose)">4.4 млн ₽</span></div>
+        <div class="sc-row"><span class="sc-lbl">EBITDA Y3</span><span class="sc-val" style="color:var(--rose)">−8.2 млн ₽</span></div>
+        <div class="sc-row"><span class="sc-lbl">Точка окупаемости</span><span class="sc-val" style="color:var(--rose)">не достигнута</span></div>
+        <div class="sc-row"><span class="sc-lbl">Вероятность</span><span class="sc-val" style="color:var(--rose)">~25%</span></div>
+      </div>
+    </div>
+    <div class="scenario-card base">
+      <div class="scenario-tag">📊 Базовый сценарий</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:12px">Умеренный рост, конкуренция нарастает постепенно. Выход на окупаемость в Q4 2027. Реалистичная оценка.</div>
+      <div class="scenario-metric">
+        <div class="sc-row"><span class="sc-lbl">Подписчики Y1</span><span class="sc-val" style="color:var(--accent)">1 500</span></div>
+        <div class="sc-row"><span class="sc-lbl">Churn/мес</span><span class="sc-val" style="color:var(--accent)">8%</span></div>
+        <div class="sc-row"><span class="sc-lbl">CAC</span><span class="sc-val" style="color:var(--accent)">3 500 ₽</span></div>
+        <div class="sc-row"><span class="sc-lbl">Выручка Y1</span><span class="sc-val" style="color:var(--accent)">8.1 млн ₽</span></div>
+        <div class="sc-row"><span class="sc-lbl">EBITDA Y3</span><span class="sc-val" style="color:var(--accent)">+40.9 млн ₽</span></div>
+        <div class="sc-row"><span class="sc-lbl">Точка окупаемости</span><span class="sc-val" style="color:var(--accent)">Мес. 20</span></div>
+        <div class="sc-row"><span class="sc-lbl">Вероятность</span><span class="sc-val" style="color:var(--accent)">~50%</span></div>
+      </div>
+    </div>
+    <div class="scenario-card bull">
+      <div class="scenario-tag">🚀 Бычий сценарий</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:12px">Виральный рост через школы, Яндекс фокусируется на B2B. Быстрый выход на окупаемость, Series A в мес. 15.</div>
+      <div class="scenario-metric">
+        <div class="sc-row"><span class="sc-lbl">Подписчики Y1</span><span class="sc-val" style="color:var(--green)">2 800</span></div>
+        <div class="sc-row"><span class="sc-lbl">Churn/мес</span><span class="sc-val" style="color:var(--green)">5%</span></div>
+        <div class="sc-row"><span class="sc-lbl">CAC</span><span class="sc-val" style="color:var(--green)">2 100 ₽</span></div>
+        <div class="sc-row"><span class="sc-lbl">Выручка Y1</span><span class="sc-val" style="color:var(--green)">15.6 млн ₽</span></div>
+        <div class="sc-row"><span class="sc-lbl">EBITDA Y3</span><span class="sc-val" style="color:var(--green)">+89 млн ₽</span></div>
+        <div class="sc-row"><span class="sc-lbl">Точка окупаемости</span><span class="sc-val" style="color:var(--green)">Мес. 14</span></div>
+        <div class="sc-row"><span class="sc-lbl">Вероятность</span><span class="sc-val" style="color:var(--green)">~25%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sensitivity table -->
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin:36px 0 6px" class="fade-in">Анализ чувствительности EBITDA Y3</h3>
+  <p style="font-size:13.5px;color:var(--text2);margin-bottom:16px;line-height:1.7" class="fade-in">Влияние отклонений Churn и CAC на годовой EBITDA третьего года (тыс. ₽). Зелёный — прибыльно, красный — убытки.</p>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:auto" class="fade-in">
+    <table class="sens-table">
+      <thead>
+        <tr>
+          <th style="text-align:left">Churn / CAC</th>
+          <th>CAC 1 500 ₽</th>
+          <th>CAC 2 000 ₽</th>
+          <th>CAC 3 500 ₽</th>
+          <th>CAC 5 000 ₽</th>
+          <th>CAC 7 000 ₽</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Churn 3%/мес (LTV=28 300₽)</td>
+          <td class="cell-green">+67 400</td>
+          <td class="cell-green">+63 100</td>
+          <td class="cell-green">+52 800</td>
+          <td class="cell-green">+41 200</td>
+          <td class="cell-yellow">+24 500</td>
+        </tr>
+        <tr>
+          <td>Churn 4%/мес (LTV=21 250₽)</td>
+          <td class="cell-green">+58 200</td>
+          <td class="cell-green">+54 900</td>
+          <td class="cell-green">+40 900</td>
+          <td class="cell-yellow">+27 600</td>
+          <td class="cell-yellow">+8 300</td>
+        </tr>
+        <tr>
+          <td>Churn 6%/мес (LTV=14 167₽)</td>
+          <td class="cell-green">+38 700</td>
+          <td class="cell-green">+33 400</td>
+          <td class="cell-yellow">+16 200</td>
+          <td class="cell-yellow">+1 800</td>
+          <td class="cell-red">−17 400</td>
+        </tr>
+        <tr>
+          <td>Churn 8%/мес (LTV=10 625₽) <span style="color:var(--text3);font-size:9px">базовый</span></td>
+          <td class="cell-green">+52 300</td>
+          <td class="cell-green">+46 100</td>
+          <td class="cell-yellow">+22 400</td>
+          <td class="cell-red">−3 800</td>
+          <td class="cell-red">−29 200</td>
+        </tr>
+        <tr>
+          <td>Churn 10%/мес (LTV=8 500₽)</td>
+          <td class="cell-yellow">+18 600</td>
+          <td class="cell-yellow">+11 200</td>
+          <td class="cell-red">−12 400</td>
+          <td class="cell-red">−35 100</td>
+          <td class="cell-red">−64 700</td>
+        </tr>
+        <tr>
+          <td>Churn 12%/мес (LTV=7 083₽)</td>
+          <td class="cell-red">−5 200</td>
+          <td class="cell-red">−13 100</td>
+          <td class="cell-red">−38 600</td>
+          <td class="cell-red">−64 500</td>
+          <td class="cell-red">−97 800</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box fade-in">
+    <div class="insight-icon">💡</div>
+    <div class="insight-text">
+      <strong>Ключевой вывод:</strong> Критическая комбинация — это Churn выше 8% при CAC выше 3 500 ₽. Именно этот квадрант приводит к устойчивым убыткам. <strong>Churn является более важной переменной, чем CAC</strong>: снижение Churn с 10% до 6% при том же CAC добавляет ~28 млн ₽ к EBITDA Y3. Первые 90 дней онбординга — самый важный период для жизнеспособности бизнеса.
     </div>
   </div>
 </section>
@@ -713,35 +970,39 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);disp
 <section id="invest" class="section">
   <div class="s-tag"><span class="s-num">06</span>Инвестиции</div>
   <h2 class="s-title">Объём инвестиций и<br>структура сделки</h2>
-  <p class="s-desc">Общая потребность в инвестициях на 18 месяцев — 12 000 000 ₽. Структура сделки предполагает смешанное финансирование.</p>
-  <div class="invest-split fade-in" style="margin-bottom:40px">
+  <p class="s-desc">Общая потребность — <strong>18 000 000 ₽</strong> на 18 месяцев (покрытие убытков Y1 + запас). Реалистичная цифра, основанная на откалиброванных расходах и консервативном росте.</p>
+  <div class="invest-split fade-in">
     <div>
-      <div style="height:280px;position:relative"><canvas id="donutChart"></canvas></div>
+      <div style="position:relative;height:280px"><canvas id="donutChart"></canvas></div>
       <ul class="invest-list">
-        <li class="invest-row"><div class="invest-dot" style="background:#00C9FF"></div><div class="invest-label">Разработка продукта</div><div class="invest-val">4 200 000 ₽</div><div class="invest-pct">35%</div></li>
-        <li class="invest-row"><div class="invest-dot" style="background:#0077FF"></div><div class="invest-label">Маркетинг и CAC</div><div class="invest-val">3 000 000 ₽</div><div class="invest-pct">25%</div></li>
-        <li class="invest-row"><div class="invest-dot" style="background:#F5A623"></div><div class="invest-label">Контент и методология</div><div class="invest-val">2 400 000 ₽</div><div class="invest-pct">20%</div></li>
-        <li class="invest-row"><div class="invest-dot" style="background:#A78BFA"></div><div class="invest-label">Команда (ФОТ 6 мес)</div><div class="invest-val">1 800 000 ₽</div><div class="invest-pct">15%</div></li>
-        <li class="invest-row"><div class="invest-dot" style="background:#22C55E"></div><div class="invest-label">Операционные + резерв</div><div class="invest-val">600 000 ₽</div><div class="invest-pct">5%</div></li>
+        <li class="invest-row"><div class="invest-dot" style="background:#3B82F6"></div><div class="invest-label">Разработка и IT</div><div class="invest-val">5 400 000 ₽</div><div class="invest-pct">30%</div></li>
+        <li class="invest-row"><div class="invest-dot" style="background:#06B6D4"></div><div class="invest-label">Маркетинг (CAC)</div><div class="invest-val">4 500 000 ₽</div><div class="invest-pct">25%</div></li>
+        <li class="invest-row"><div class="invest-dot" style="background:#F59E0B"></div><div class="invest-label">Контент и методология</div><div class="invest-val">2 700 000 ₽</div><div class="invest-pct">15%</div></li>
+        <li class="invest-row"><div class="invest-dot" style="background:#8B5CF6"></div><div class="invest-label">ФОТ первые 6 мес</div><div class="invest-val">4 500 000 ₽</div><div class="invest-pct">25%</div></li>
+        <li class="invest-row"><div class="invest-dot" style="background:#10B981"></div><div class="invest-label">Резерв + операционные</div><div class="invest-val">900 000 ₽</div><div class="invest-pct">5%</div></li>
       </ul>
     </div>
     <div>
-      <div style="font-size:14px;font-weight:600;margin-bottom:20px">Структура сделки</div>
+      <div style="font-size:14px;font-weight:600;margin-bottom:18px">Структура сделки</div>
       <div class="deal-terms">
-        <div class="term-row"><div class="term-label">Собственный капитал основателей</div><div class="term-val">2 000 000 ₽ <span style="font-size:12px;color:var(--text3)">(17%)</span></div></div>
-        <div class="term-row"><div class="term-label">Бизнес-ангел / Pre-seed</div><div class="term-val">5 000 000 ₽ <span style="font-size:12px;color:var(--text3)">(42%)</span></div></div>
-        <div class="term-row"><div class="term-label">Грант Фонда Сколково</div><div class="term-val">3 000 000 ₽ <span style="font-size:12px;color:var(--text3)">(25%)</span></div></div>
-        <div class="term-row"><div class="term-label">Региональные EdTech-гранты</div><div class="term-val">2 000 000 ₽ <span style="font-size:12px;color:var(--text3)">(17%)</span></div></div>
-        <div style="border-top:1px solid var(--border2);padding-top:16px;margin-top:4px">
-          <div class="term-row" style="background:rgba(0,201,255,.07);border-color:rgba(0,201,255,.2)">
+        <div class="term-row"><div class="term-label">Собственный капитал основателей</div><div class="term-val">2 000 000 ₽ <span style="font-size:11px;color:var(--text3)">(11%)</span></div></div>
+        <div class="term-row"><div class="term-label">Бизнес-ангел / Pre-seed раунд</div><div class="term-val">7 000 000 ₽ <span style="font-size:11px;color:var(--text3)">(39%)</span></div></div>
+        <div class="term-row"><div class="term-label">Грант Фонда Сколково (EdTech)</div><div class="term-val">5 000 000 ₽ <span style="font-size:11px;color:var(--text3)">(28%)</span></div></div>
+        <div class="term-row"><div class="term-label">Региональные EdTech-гранты</div><div class="term-val">4 000 000 ₽ <span style="font-size:11px;color:var(--text3)">(22%)</span></div></div>
+        <div style="border-top:1px solid var(--border2);padding-top:12px">
+          <div class="term-row" style="background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.2)">
             <div class="term-label" style="font-weight:600;color:var(--text)">Итого инвестиций</div>
-            <div class="term-val" style="color:var(--accent)">12 000 000 ₽</div>
+            <div class="term-val" style="color:var(--accent)">18 000 000 ₽</div>
           </div>
         </div>
-        <div class="card" style="margin-top:8px">
+        <div class="card" style="margin-top:6px">
           <div class="card-title">Условия для ангела</div>
-          <div style="font-size:13px;color:var(--text2);line-height:1.8;margin-top:8px">
-            Доля: 15–20% за 5 000 000 ₽. Оценка pre-money: ~25 000 000 ₽. Горизонт выхода: 4–5 лет (Series A или M&A). Прогноз оценки при Series A: 200–400 млн ₽.
+          <div style="font-size:12.5px;color:var(--text2);line-height:1.85;margin-top:7px">
+            Доля: <strong style="color:var(--text)">15–18% за 7 000 000 ₽</strong>.<br>
+            Оценка pre-money: ~<strong style="color:var(--text)">40 000 000 ₽</strong>.<br>
+            Горизонт выхода: 4–5 лет (Series A или M&A).<br>
+            Прогноз при Series A (Y3): оценка <strong style="color:var(--green)">300–500 млн ₽</strong>.<br>
+            ESOP-пул для команды: 10% зарезервировано.
           </div>
         </div>
       </div>
@@ -752,295 +1013,337 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);disp
 <!-- FINANCE -->
 <section id="finance" class="section">
   <div class="s-tag"><span class="s-num">07</span>Финансы</div>
-  <h2 class="s-title">Финансовый прогноз<br>на 3 года</h2>
-  <p class="s-desc">Модель предполагает выход на операционную безубыточность к 30-му месяцу. ARR к концу 3 года — 72 млн ₽.</p>
+  <h2 class="s-title">Финансовый прогноз<br><span style="font-size:22px;color:var(--text2)">2026–2028</span></h2>
+  <p class="s-desc">Средний тариф: <strong>850 ₽/мес</strong>. Себестоимость: <strong>195 ₽/мес</strong>. Выход на ежемесячный EBITDA+ — месяц 20 (Q4 2027). Годовой EBITDA+ — 2028.</p>
+
   <div class="fin-kpi fade-in">
-    <div class="kpi-card"><div class="kpi-label">Подписчики — Год 1</div><div class="kpi-val">2 400</div><div class="kpi-delta up">↑ Старт роста</div></div>
-    <div class="kpi-card"><div class="kpi-label">Подписчики — Год 2</div><div class="kpi-val">9 500</div><div class="kpi-delta up">↑ ×3.9</div></div>
-    <div class="kpi-card"><div class="kpi-label">Подписчики — Год 3</div><div class="kpi-val">24 000</div><div class="kpi-delta up">↑ ×2.5</div></div>
-    <div class="kpi-card"><div class="kpi-label">ARR — Год 3</div><div class="kpi-val">72 млн ₽</div><div class="kpi-delta up">↑ CAC окупается за 4 мес</div></div>
+    <div class="kpi-card"><div class="kpi-label">Подписчики — Год 1</div><div class="kpi-val">1 500</div><div class="kpi-delta warn">↑ Консервативный таргет</div></div>
+    <div class="kpi-card"><div class="kpi-label">Подписчики — Год 2</div><div class="kpi-val">6 000</div><div class="kpi-delta up">↑ ×4.0 рост за Y2</div></div>
+    <div class="kpi-card"><div class="kpi-label">Подписчики — Год 3</div><div class="kpi-val">15 000</div><div class="kpi-delta up">↑ ×2.5 рост за Y3</div></div>
+    <div class="kpi-card"><div class="kpi-label">ARR — Конец Y3</div><div class="kpi-val">153 млн ₽</div><div class="kpi-delta up">↑ 15 000 × 850 × 12</div></div>
   </div>
-  <div class="card fade-in" style="margin-bottom:32px">
-    <canvas id="finChart" height="300"></canvas>
+
+  <div class="card fade-in" style="margin-bottom:28px">
+    <div style="font-size:11.5px;color:var(--text3);margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
+      <span>Финансовая динамика по месяцам (36 месяцев · 2026–2028)</span>
+      <span style="color:var(--accent)">Точка окупаемости ≈ месяц 20</span>
+    </div>
+    <div style="position:relative;height:300px;width:100%"><canvas id="finChart"></canvas></div>
   </div>
-  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden" class="fade-in">
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:auto;margin-bottom:20px" class="fade-in">
     <table class="fin-table">
       <thead><tr>
         <th style="text-align:left">Показатель</th>
-        <th>Год 1</th><th>Год 2</th><th>Год 3</th>
+        <th>Y1 (2026)</th><th>Y2 (2027)</th><th>Y3 (2028)</th>
       </tr></thead>
       <tbody>
-        <tr><td>Выручка, тыс. ₽</td><td>2 160</td><td>8 550</td><td>21 600</td></tr>
-        <tr><td>Себестоимость, тыс. ₽</td><td class="neg">468</td><td class="neg">1 852</td><td class="neg">4 680</td></tr>
-        <tr class="total"><td>Валовая прибыль, тыс. ₽</td><td class="pos">1 692</td><td class="pos">6 698</td><td class="pos">16 920</td></tr>
-        <tr><td>Маркетинг, тыс. ₽</td><td class="neg">3 600</td><td class="neg">4 200</td><td class="neg">4 800</td></tr>
-        <tr><td>Разработка и IT, тыс. ₽</td><td class="neg">4 200</td><td class="neg">4 800</td><td class="neg">5 400</td></tr>
-        <tr><td>Зарплатный фонд, тыс. ₽</td><td class="neg">4 800</td><td class="neg">7 200</td><td class="neg">9 600</td></tr>
-        <tr><td>Административные, тыс. ₽</td><td class="neg">600</td><td class="neg">720</td><td class="neg">960</td></tr>
-        <tr class="total"><td>EBITDA, тыс. ₽</td><td class="neg">−11 508</td><td class="neg">−10 222</td><td class="pos">+2 160</td></tr>
-        <tr><td>CAC (средний)</td><td>3 500 ₽</td><td>2 800 ₽</td><td>2 200 ₽</td></tr>
-        <tr><td>LTV (12 мес)</td><td>8 900 ₽</td><td>9 500 ₽</td><td>10 200 ₽</td></tr>
-        <tr class="total"><td>LTV/CAC</td><td class="pos">2.5×</td><td class="pos">3.4×</td><td class="pos">4.6×</td></tr>
-        <tr><td>Churn rate (мес)</td><td class="neg">8%</td><td>6%</td><td class="pos">4%</td></tr>
-        <tr><td>Срок окупаемости CAC</td><td>4.7 мес</td><td>3.5 мес</td><td class="pos">2.9 мес</td></tr>
+        <tr class="section-header"><td colspan="4">Доходы</td></tr>
+        <tr><td>Среднее число подписчиков</td><td>790</td><td>3 750</td><td>10 500</td></tr>
+        <tr><td>Средний тариф (блендед)</td><td>850 ₽</td><td>850 ₽</td><td>850 ₽</td></tr>
+        <tr class="total"><td>Выручка, тыс. ₽</td><td class="pos">8 050</td><td class="pos">38 250</td><td class="pos">107 100</td></tr>
+        <tr class="section-header"><td colspan="4">Себестоимость (COGS)</td></tr>
+        <tr><td>COGS (195 ₽ × ср. подписч. × 12)</td><td class="neg">1 850</td><td class="neg">8 775</td><td class="neg">24 570</td></tr>
+        <tr class="total"><td>Валовая прибыль, тыс. ₽</td><td class="pos">6 200</td><td class="pos">29 475</td><td class="pos">82 530</td></tr>
+        <tr><td style="font-size:11px;color:var(--text3)">Gross Margin %</td><td>77%</td><td>77%</td><td>77%</td></tr>
+        <tr class="section-header"><td colspan="4">Операционные расходы</td></tr>
+        <tr><td>Маркетинг и привлечение</td><td class="neg">4 800</td><td class="neg">7 200</td><td class="neg">9 600</td></tr>
+        <tr><td>Разработка и IT-инфраструктура</td><td class="neg">6 000</td><td class="neg">7 200</td><td class="neg">8 400</td></tr>
+        <tr><td>ФОТ (11→15→20 чел.)</td><td class="neg">9 000</td><td class="neg">14 400</td><td class="neg">21 600</td></tr>
+        <tr><td>Административные, юридические</td><td class="neg">1 200</td><td class="neg">1 500</td><td class="neg">2 000</td></tr>
+        <tr class="total"><td>Итого операционные расходы</td><td class="neg">21 000</td><td class="neg">30 300</td><td class="neg">41 600</td></tr>
+        <tr class="total" style="font-size:14px"><td>EBITDA, тыс. ₽</td><td class="neg">−14 800</td><td class="warn-c">−825</td><td class="pos">+40 930</td></tr>
+        <tr class="section-header"><td colspan="4">Ключевые метрики эффективности</td></tr>
+        <tr><td>CAC (стоимость привлечения)</td><td class="warn-c">3 500 ₽</td><td>2 800 ₽</td><td class="pos">2 000 ₽</td></tr>
+        <tr><td>LTV (850/churn%)</td><td>10 625 ₽</td><td>14 167 ₽</td><td class="pos">21 250 ₽</td></tr>
+        <tr class="total"><td>LTV / CAC</td><td class="warn-c">3.0×</td><td class="pos">5.1×</td><td class="pos">10.6×</td></tr>
+        <tr><td>Churn rate (мес.)</td><td class="neg">8%</td><td class="warn-c">6%</td><td class="pos">4%</td></tr>
+        <tr><td>Срок окупаемости CAC</td><td>4.1 мес</td><td>3.3 мес</td><td class="pos">2.4 мес</td></tr>
+        <tr><td>ARR на конец года, тыс. ₽</td><td>15 300</td><td>61 200</td><td class="pos">153 000</td></tr>
       </tbody>
     </table>
+  </div>
+  <div class="note fade-in">
+    <strong>Интерпретация:</strong> EBITDA Y1 = −14.8 млн (нормально для SaaS-стартапа на фазе роста). Y2: выходим на ежемесячный операционный безубыток к Q4, годовой EBITDA слегка отрицательный. Y3: профитабельность достигнута, EBITDA +41 млн. Главное условие — удержать Churn &lt; 8% и CAC &lt; 3 500 ₽.
   </div>
 </section>
 
 <!-- ROADMAP -->
 <section id="roadmap" class="section">
   <div class="s-tag"><span class="s-num">08</span>Дорожная карта</div>
-  <h2 class="s-title">Этапы и контрольные<br>точки</h2>
+  <h2 class="s-title">Этапы и контрольные точки</h2>
   <div class="grid-2">
     <div class="roadmap fade-in">
       <div class="rm-item">
         <div class="rm-dot"></div>
         <div class="rm-phase">Фаза 1 · Валидация</div>
-        <div class="rm-title">MVP и первые пользователи</div>
-        <div class="rm-date">Месяцы 1–4 · 2025 Q1–Q2</div>
+        <div class="rm-title">MVP и product-market fit</div>
+        <div class="rm-date">Янв–Апр 2026 · Мес. 1–4</div>
         <div class="rm-items">
           <span class="rm-chip">ИИ-диагностика</span>
-          <span class="rm-chip">2 предмета</span>
-          <span class="rm-chip">100 бета-пользователей</span>
+          <span class="rm-chip">4 предмета (MVP)</span>
+          <span class="rm-chip">200 бета-пользователей</span>
           <span class="rm-chip">Веб-версия</span>
-          <span class="rm-chip">NPS > 50</span>
+          <span class="rm-kpi">NPS ≥ 45</span>
+          <span class="rm-kpi">Churn ≤ 10%</span>
         </div>
       </div>
       <div class="rm-item">
-        <div class="rm-dot" style="background:var(--gold)"></div>
+        <div class="rm-dot" style="background:var(--gold);box-shadow:0 0 12px rgba(245,158,11,.5)"></div>
         <div class="rm-phase" style="color:var(--gold)">Фаза 2 · Рост</div>
         <div class="rm-title">Полный запуск и масштабирование</div>
-        <div class="rm-date">Месяцы 5–12 · 2025 Q3–Q4</div>
+        <div class="rm-date">Май–Дек 2026 · Мес. 5–12</div>
         <div class="rm-items">
           <span class="rm-chip">9 предметов</span>
           <span class="rm-chip">Мобильное приложение</span>
-          <span class="rm-chip">2 400 подписчиков</span>
-          <span class="rm-chip">Родительский дашборд</span>
-          <span class="rm-chip">Партнёрство с 20 школами</span>
+          <span class="rm-chip">Дашборд родителей</span>
+          <span class="rm-chip">30 школ-партнёров</span>
+          <span class="rm-kpi">1 500 подписчиков</span>
+          <span class="rm-kpi">CAC ≤ 3 500 ₽</span>
         </div>
       </div>
       <div class="rm-item">
-        <div class="rm-dot" style="background:var(--purple)"></div>
+        <div class="rm-dot" style="background:var(--purple);box-shadow:0 0 12px rgba(139,92,246,.5)"></div>
         <div class="rm-phase" style="color:var(--purple)">Фаза 3 · Экспансия</div>
         <div class="rm-title">Series A и регионы</div>
-        <div class="rm-date">Месяцы 13–24 · 2026</div>
+        <div class="rm-date">Янв–Дек 2027 · Мес. 13–24</div>
         <div class="rm-items">
-          <span class="rm-chip">9 500 подписчиков</span>
           <span class="rm-chip">B2B для школ</span>
-          <span class="rm-chip">5 регионов</span>
+          <span class="rm-chip">10 регионов</span>
           <span class="rm-chip">Series A 50 млн ₽</span>
-          <span class="rm-chip">Выход на безубыточность</span>
+          <span class="rm-chip">Прогноз балла ЕГЭ</span>
+          <span class="rm-kpi">6 000 подписчиков</span>
+          <span class="rm-kpi">EBITDA≥0 к Q4</span>
         </div>
       </div>
       <div class="rm-item">
-        <div class="rm-dot" style="background:var(--green)"></div>
+        <div class="rm-dot" style="background:var(--green);box-shadow:0 0 12px rgba(16,185,129,.5)"></div>
         <div class="rm-phase" style="color:var(--green)">Фаза 4 · Лидерство</div>
         <div class="rm-title">Рыночное лидерство</div>
-        <div class="rm-date">Месяцы 25–36 · 2027</div>
+        <div class="rm-date">Янв–Дек 2028 · Мес. 25–36</div>
         <div class="rm-items">
-          <span class="rm-chip">24 000 подписчиков</span>
-          <span class="rm-chip">ARR 72 млн ₽</span>
-          <span class="rm-chip">White label B2B</span>
+          <span class="rm-chip">White label B2G</span>
           <span class="rm-chip">CIS-экспансия</span>
-          <span class="rm-chip">M&A или IPO-готовность</span>
+          <span class="rm-chip">Маркетплейс курсов</span>
+          <span class="rm-kpi">15 000 подписчиков</span>
+          <span class="rm-kpi">ARR 153 млн ₽</span>
+          <span class="rm-kpi">EBITDA +41 млн</span>
         </div>
       </div>
     </div>
     <div class="fade-in">
-      <div class="card" style="margin-bottom:16px">
-        <div class="card-title">Ключевые метрики роста</div>
-        <div style="display:flex;flex-direction:column;gap:16px;margin-top:12px">
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="color:var(--text2)">Подписчики</span><span>2 400 → 24 000</span></div>
-            <div style="height:6px;background:var(--bg2);border-radius:3px"><div style="width:33%;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px"></div></div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="color:var(--text2)">Churn rate</span><span>8% → 4%</span></div>
-            <div style="height:6px;background:var(--bg2);border-radius:3px"><div style="width:50%;height:100%;background:linear-gradient(90deg,var(--green),#15803D);border-radius:3px"></div></div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="color:var(--text2)">CAC</span><span>3 500 → 2 200 ₽</span></div>
-            <div style="height:6px;background:var(--bg2);border-radius:3px"><div style="width:63%;height:100%;background:linear-gradient(90deg,var(--gold),#D97706);border-radius:3px"></div></div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="color:var(--text2)">NPS</span><span>50 → 75</span></div>
-            <div style="height:6px;background:var(--bg2);border-radius:3px"><div style="width:75%;height:100%;background:linear-gradient(90deg,var(--purple),#7C3AED);border-radius:3px"></div></div>
-          </div>
+      <div class="card" style="margin-bottom:14px">
+        <div class="card-title">Динамика ключевых метрик</div>
+        <div style="margin-top:14px">
+          <div class="prog-row"><div class="prog-header"><span class="prog-label">Подписчики (0 → 15 000)</span><span>Y3</span></div><div class="prog-bar"><div class="prog-fill" style="width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))"></div></div></div>
+          <div class="prog-row"><div class="prog-header"><span class="prog-label">Churn: 8% → 4%/мес</span><span>прогресс 50%</span></div><div class="prog-bar"><div class="prog-fill" style="width:50%;background:linear-gradient(90deg,var(--green),#047857)"></div></div></div>
+          <div class="prog-row"><div class="prog-header"><span class="prog-label">CAC: 3500 → 2000 ₽</span><span>прогресс 57%</span></div><div class="prog-bar"><div class="prog-fill" style="width:57%;background:linear-gradient(90deg,var(--gold),#B45309)"></div></div></div>
+          <div class="prog-row"><div class="prog-header"><span class="prog-label">LTV/CAC: 3× → 10.6×</span><span>прогресс 80%</span></div><div class="prog-bar"><div class="prog-fill" style="width:80%;background:linear-gradient(90deg,var(--purple),#5B21B6)"></div></div></div>
+          <div class="prog-row"><div class="prog-header"><span class="prog-label">NPS: 45 → 72</span><span>прогресс 70%</span></div><div class="prog-bar"><div class="prog-fill" style="width:70%;background:linear-gradient(90deg,#22D3EE,#3B82F6)"></div></div></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Команда для запуска</div>
-        <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
-          <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px"><span>CEO / Product</span><span style="color:var(--text3)">1 чел.</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px"><span>CTO / Backend</span><span style="color:var(--text3)">1 чел.</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px"><span>ML / ИИ-инженер</span><span style="color:var(--text3)">1 чел.</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px"><span>Frontend / UX</span><span style="color:var(--text3)">1 чел.</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px"><span>Методисты-предметники</span><span style="color:var(--text3)">3 чел.</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px"><span>Маркетолог / SMM</span><span style="color:var(--text3)">1 чел.</span></div>
+        <div class="card-title">Критические точки (make-or-break)</div>
+        <div style="display:flex;flex-direction:column;gap:9px;margin-top:11px">
+          <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:9px 12px;background:var(--bg2);border-radius:7px;border-left:3px solid var(--rose)"><span>Конверсия триала &lt; 20%</span><span style="color:var(--rose)">🛑 Стоп</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:9px 12px;background:var(--bg2);border-radius:7px;border-left:3px solid var(--gold)"><span>Churn &gt; 10%/мес к мес. 6</span><span style="color:var(--gold)">⚠ Пересмотр</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:9px 12px;background:var(--bg2);border-radius:7px;border-left:3px solid var(--gold)"><span>CAC &gt; 5 000 ₽ в Y1</span><span style="color:var(--gold)">⚠ Пересмотр</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:9px 12px;background:var(--bg2);border-radius:7px;border-left:3px solid var(--green)"><span>NPS ≥ 50 после мес. 3</span><span style="color:var(--green)">✓ Зелёный свет</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12.5px;padding:9px 12px;background:var(--bg2);border-radius:7px;border-left:3px solid var(--accent)"><span>Series A закрыт к мес. 18</span><span style="color:var(--accent)">💡 Ключевой</span></div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section">
+  <div class="s-tag"><span class="s-num">09</span>Команда</div>
+  <h2 class="s-title">Команда для запуска</h2>
+  <p class="s-desc">Реалистичный состав на Y1: <strong>11 человек</strong>. ФОТ ~750 тыс ₽/мес (9 млн/год). Средняя зарплата ~68 тыс ₽/мес — lean-стартап с опционами. К Y3 команда вырастет до 20 человек.</p>
+  <div class="team-grid fade-in">
+    <div class="team-card"><div class="team-role">Основатель</div><div class="team-name">CEO / Product Owner</div><div class="team-sal">100–130 тыс ₽/мес + ESOP</div></div>
+    <div class="team-card"><div class="team-role">Основатель / Технический директор</div><div class="team-name">CTO / Fullstack Backend</div><div class="team-sal">110–140 тыс ₽/мес + ESOP</div></div>
+    <div class="team-card"><div class="team-role">Разработка</div><div class="team-name">ML / AI-инженер</div><div class="team-sal">130–160 тыс ₽/мес + ESOP</div></div>
+    <div class="team-card"><div class="team-role">Разработка</div><div class="team-name">Frontend Developer</div><div class="team-sal">100–130 тыс ₽/мес</div></div>
+    <div class="team-card"><div class="team-role">Разработка</div><div class="team-name">Backend Developer</div><div class="team-sal">100–130 тыс ₽/мес</div></div>
+    <div class="team-card"><div class="team-role">Дизайн</div><div class="team-name">UX/UI Designer</div><div class="team-sal">80–100 тыс ₽/мес</div></div>
+    <div class="team-card"><div class="team-role">Контент</div><div class="team-name">Методист: матем. + физика</div><div class="team-sal">60–80 тыс ₽/мес</div></div>
+    <div class="team-card"><div class="team-role">Контент</div><div class="team-name">Методист: рус. яз. + история</div><div class="team-sal">60–80 тыс ₽/мес</div></div>
+    <div class="team-card"><div class="team-role">Контент</div><div class="team-name">Методист: химия + биол. + англ.</div><div class="team-sal">60–80 тыс ₽/мес</div></div>
+    <div class="team-card"><div class="team-role">Маркетинг</div><div class="team-name">Growth Hacker / Performance</div><div class="team-sal">90–110 тыс ₽/мес</div></div>
+    <div class="team-card"><div class="team-role">Поддержка + SMM</div><div class="team-name">Customer Support / SMM</div><div class="team-sal">50–65 тыс ₽/мес</div></div>
   </div>
 </section>
 
 <!-- IP -->
 <section id="ip" class="section">
-  <div class="s-tag"><span class="s-num">09</span>Интеллектуальная собственность</div>
-  <h2 class="s-title">Правовая защита<br>продукта</h2>
-  <div class="ip-grid fade-in">
-    <div class="ip-card">
-      <div class="ip-icon" style="background:rgba(0,201,255,.1)">©</div>
-      <h4>Авторское право</h4>
-      <p>Весь оригинальный контент платформы — видеоуроки, тексты заданий, методические материалы, дизайн интерфейса — защищён авторским правом с момента создания (ст. 1259 ГК РФ). Все сотрудники подписывают NDA + соглашение об отчуждении прав на результаты интеллектуальной деятельности.</p>
-      <div class="ip-status done">✓ Автоматически при создании</div>
-    </div>
-    <div class="ip-card">
-      <div class="ip-icon" style="background:rgba(245,166,35,.1)">™</div>
-      <h4>Товарный знак</h4>
-      <p>Регистрация товарного знака «ГениусЛаб» / «GeniusLab» в Роспатенте по классам МКТУ 41 (образовательные услуги) и 42 (программное обеспечение). Срок регистрации: 10 лет с продлением. Бюджет: ~50 000 ₽ на регистрацию.</p>
-      <div class="ip-status plan">⏳ В процессе регистрации</div>
-    </div>
-    <div class="ip-card">
-      <div class="ip-icon" style="background:rgba(167,139,250,.1)">🔬</div>
-      <h4>Патентное право</h4>
-      <p>Подача заявки на патент «Система адаптивного формирования индивидуальной образовательной траектории на основе анализа пробелов в знаниях» (изобретение / полезная модель). Рассмотрение в Роспатенте — 12–18 месяцев. Бюджет: ~120 000 ₽.</p>
-      <div class="ip-status plan">⏳ Подготовка заявки</div>
-    </div>
-    <div class="ip-card">
-      <div class="ip-icon" style="background:rgba(34,197,94,.1)">🔒</div>
-      <h4>Защита данных и NDA</h4>
-      <p>Политика обработки персональных данных согласно ФЗ №152 «О персональных данных». Регистрация оператора в Роскомнадзоре. NDA с сотрудниками, партнёрами и инвесторами. Соглашения о неконкуренции на срок 2 года после увольнения. Данные хранятся на серверах в России.</p>
-      <div class="ip-status done">✓ Реализовано при запуске</div>
-    </div>
+  <div class="s-tag"><span class="s-num">10</span>Интеллект. собственность</div>
+  <h2 class="s-title">Правовая защита продукта</h2>
+  <div class="grid-2 fade-in">
+    <div class="ip-card"><div class="ip-icon" style="background:rgba(59,130,246,.1)">©</div><h4>Авторское право</h4><p>Весь оригинальный контент — видеоуроки, задания, дизайн интерфейса — защищён с момента создания (ст. 1259 ГК РФ). Все сотрудники подписывают NDA + соглашение об отчуждении прав на результаты интеллектуальной деятельности.</p><div class="ip-status done">✓ Автоматически при создании</div></div>
+    <div class="ip-card"><div class="ip-icon" style="background:rgba(245,158,11,.1)">™</div><h4>Товарный знак</h4><p>Регистрация «ГениусЛаб» / «GeniusLab» в Роспатенте по МКТУ 41 (образовательные услуги) и 42 (ПО). Срок регистрации: 10 лет с продлением. Бюджет: ~60 000 ₽.</p><div class="ip-status plan">⏳ В процессе регистрации</div></div>
+    <div class="ip-card"><div class="ip-icon" style="background:rgba(139,92,246,.1)">🔬</div><h4>Патентное право</h4><p>Заявка на патент «Система адаптивного формирования индивидуальной образовательной траектории на основе ИИ-анализа пробелов в знаниях». Полезная модель — 6–8 мес. Бюджет: ~120 000 ₽.</p><div class="ip-status plan">⏳ Подготовка заявки</div></div>
+    <div class="ip-card"><div class="ip-icon" style="background:rgba(16,185,129,.1)">🔒</div><h4>Персональные данные и безопасность</h4><p>Политика обработки ПД согласно ФЗ №152. Регистрация оператора в Роскомнадзоре. NDA с сотрудниками, партнёрами, инвесторами. Non-compete на 2 года. Данные хранятся на серверах в РФ.</p><div class="ip-status done">✓ Реализовано при запуске</div></div>
   </div>
 </section>
 
 <!-- PARTNERS -->
 <section id="partners" class="section">
-  <div class="s-tag"><span class="s-num">10</span>Партнёры</div>
-  <h2 class="s-title">Ключевые партнёры<br>и экосистема</h2>
-  <div class="partner-grid fade-in">
-    <div class="partner-card"><div class="partner-type">Технологии</div><h4>Яндекс Облако / AWS</h4><p style="font-size:13px;color:var(--text2);line-height:1.6">Инфраструктура, хранение данных, CDN. Партнёрская программа для стартапов — скидки до 40% в первый год.</p></div>
-    <div class="partner-card"><div class="partner-type">ИИ и ML</div><h4>YandexGPT API / OpenAI</h4><p style="font-size:13px;color:var(--text2);line-height:1.6">Языковые модели для объяснений, генерации задач и адаптации контента. Приоритет — российский стек.</p></div>
-    <div class="partner-card"><div class="partner-type">Образование</div><h4>Школы и лицеи</h4><p style="font-size:13px;color:var(--text2);line-height:1.6">Партнёрская сеть школ — канал дистрибуции. Цель: 50 школ к концу года 2. Комиссия 10% от подписок.</p></div>
-    <div class="partner-card"><div class="partner-type">Финансирование</div><h4>Фонд Сколково</h4><p style="font-size:13px;color:var(--text2);line-height:1.6">Грантовое финансирование до 3 млн ₽ по программе «Умный город» / EdTech. Налоговые льготы резидента.</p></div>
-    <div class="partner-card"><div class="partner-type">Дистрибуция</div><h4>СберПрайм / Т-Банк</h4><p style="font-size:13px;color:var(--text2);line-height:1.6">Включение в экосистему подписок крупнейших банков — доступ к аудитории 5–15 млн семей.</p></div>
-    <div class="partner-card"><div class="partner-type">Контент</div><h4>Издательства «Просвещение»</h4><p style="font-size:13px;color:var(--text2);line-height:1.6">Лицензирование методических материалов, совместимость с федеральными учебниками и ФГОС.</p></div>
+  <div class="s-tag"><span class="s-num">11</span>Партнёры</div>
+  <h2 class="s-title">Ключевые партнёры</h2>
+  <div class="grid-3 fade-in">
+    <div class="partner-card"><div class="partner-type">Технологии</div><h4>Яндекс Облако</h4><p>Инфраструктура, хранение данных в РФ, CDN, YandexGPT API. Партнёрская программа для стартапов — скидки до 40%.</p></div>
+    <div class="partner-card"><div class="partner-type">Образование</div><h4>Школы и лицеи</h4><p>Сеть партнёрских школ — прямой канал дистрибуции. Цель: 30 школ к концу Y1, 100+ к концу Y2. Комиссия 10%.</p></div>
+    <div class="partner-card"><div class="partner-type">Финансирование</div><h4>Фонд «Сколково»</h4><p>Грантовая программа EdTech до 5 млн ₽. Налоговые льготы резидента. Доступ к экосистеме и нетворку.</p></div>
+    <div class="partner-card"><div class="partner-type">Дистрибуция</div><h4>СберПрайм / Т-Подписка</h4><p>Включение в экосистему подписок — доступ к аудитории 8–15 млн семей без дополнительного CAC.</p></div>
+    <div class="partner-card"><div class="partner-type">Методология</div><h4>Изд-во «Просвещение»</h4><p>Лицензирование методических материалов, соответствие ФГОС, совместимость с действующими учебниками.</p></div>
+    <div class="partner-card"><div class="partner-type">Инвестиции</div><h4>Бизнес-ангелы (EdTech)</h4><p>Target: ангелы с опытом в EdTech или B2C SaaS. Pre-seed 7 млн ₽ за 15–18% доли. Закрыть к мес. 3.</p></div>
   </div>
 
   <div class="divider"></div>
 
-  <div class="card fade-in" style="text-align:center;padding:48px">
-    <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;margin-bottom:12px">Готовы обсудить?</div>
-    <div style="font-size:15px;color:var(--text2);max-width:480px;margin:0 auto 28px;line-height:1.7">ГениусЛаб — это не просто платформа. Это инфраструктура равного доступа к качественному образованию для каждого школьника в России.</div>
-    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
-      <div style="background:rgba(0,201,255,.1);border:1px solid rgba(0,201,255,.3);border-radius:10px;padding:12px 24px;font-size:13px;font-weight:600;color:var(--accent)">📧 hello@geniuslab.ru</div>
-      <div style="background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:10px;padding:12px 24px;font-size:13px;font-weight:600">🌐 geniuslab.ru</div>
-      <div style="background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:10px;padding:12px 24px;font-size:13px;font-weight:600">📱 @geniuslab_ru</div>
+  <div class="card fade-in" style="text-align:center;padding:52px">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;margin-bottom:10px">Готовы обсудить?</div>
+    <div style="font-size:14px;color:var(--text2);max-width:480px;margin:0 auto 28px;line-height:1.78">ГениусЛаб — инфраструктура равного доступа к качественному образованию для каждого школьника России. Ищем smart money: ангелов с экспертизой в EdTech или B2C SaaS.</div>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+      <div style="background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:10px;padding:11px 22px;font-size:13px;font-weight:600;color:var(--accent)">📧 hello@geniuslab.ru</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:10px;padding:11px 22px;font-size:13px;font-weight:600">🌐 geniuslab.ru</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:10px;padding:11px 22px;font-size:13px;font-weight:600">📱 @geniuslab_ru</div>
     </div>
-    <div style="margin-top:40px;font-size:12px;color:var(--text3)">© 2025 ООО «ГениусЛаб» · ИНН подаётся на регистрацию · Все права защищены</div>
+    <div style="margin-top:40px;font-size:11px;color:var(--text3)">© 2026 ООО «ГениусЛаб» · Все права защищены · Данные бизнес-плана являются конфиденциальными</div>
   </div>
 </section>
 
 </div><!-- /main -->
 
 <script>
-// NAVIGATION
-const navItems = document.querySelectorAll('.nav-item');
-const sections = document.querySelectorAll('[id]');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  sections.forEach(s=>{if(s.offsetTop-120<=window.scrollY)cur=s.id});
-  navItems.forEach(n=>{
-    n.classList.toggle('active',n.getAttribute('href')==='#'+cur);
-  });
-});
-navItems.forEach(n=>n.addEventListener('click',e=>{
+// ======= NAVIGATION =======
+const SECTIONS = Array.from(document.querySelectorAll('#main section[id]'));
+const NAV_ITEMS = Array.from(document.querySelectorAll('.nav-item[data-target]'));
+
+function updateNav() {
+  const scrollY = window.scrollY;
+  let current = SECTIONS[0].id;
+  for (const sec of SECTIONS) {
+    if (sec.offsetTop - 160 <= scrollY) current = sec.id;
+  }
+  NAV_ITEMS.forEach(n => n.classList.toggle('active', n.dataset.target === current));
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+NAV_ITEMS.forEach(n => n.addEventListener('click', e => {
   e.preventDefault();
-  const t=document.querySelector(n.getAttribute('href'));
-  if(t)t.scrollIntoView({behavior:'smooth'});
+  const t = document.getElementById(n.dataset.target);
+  if (t) t.scrollIntoView({ behavior: 'smooth' });
 }));
 
-// FADE IN
-const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')}),{threshold:.1});
-document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+// ======= FADE IN =======
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-// TABS
-function showTab(id){
-  document.querySelectorAll('.p4-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.p4-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  event.target.classList.add('active');
+// ======= TABS =======
+function showTab(id, btn) {
+  document.querySelectorAll('.p4-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.p4-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
 }
 
-// RISK CHART
-const riskCtx=document.getElementById('riskChart').getContext('2d');
-const risks=[
-  {x:40,y:2.0,label:'Слабый спрос',color:'#F5A623'},
-  {x:25,y:0.8,label:'Технические сбои',color:'#0077FF'},
-  {x:35,y:4.5,label:'Выход Яндекс/VK',color:'#EF4444'},
-  {x:50,y:1.8,label:'Высокий Churn',color:'#EF4444'},
-  {x:15,y:1.2,label:'Законод. риски',color:'#22C55E'},
-  {x:30,y:0.9,label:'Проблемы контента',color:'#A78BFA'},
-  {x:20,y:1.4,label:'Кибератака',color:'#F5A623'},
-  {x:30,y:5.0,label:'Нехватка инвестиций',color:'#EF4444'},
-  {x:20,y:0.5,label:'Уход ключевых сотрудников',color:'#0077FF'},
-  {x:10,y:2.0,label:'Изменение алгоритмов ЕГЭ',color:'#22C55E'},
+// ======= CHARTS (deferred until layout is complete) =======
+window.addEventListener('load', function() {
+  requestAnimationFrame(function() {
+    initCharts();
+  });
+});
+
+function initCharts() {
+
+// ======= RISK CHART =======
+const riskData = [
+  { x: 45, y: 10.0, r: 24, label: 'Выход Яндекс/VK с ИИ', color: '#F43F5E' },
+  { x: 35, y: 18.0, r: 28, label: 'Нехватка финансирования', color: '#F43F5E' },
+  { x: 50, y:  6.0, r: 20, label: 'Высокий Churn > 10%', color: '#F43F5E' },
+  { x: 60, y:  2.0, r: 14, label: 'Сложно нанять ML-инж.', color: '#F59E0B' },
+  { x: 25, y:  3.0, r: 14, label: 'Технические сбои (ЕГЭ)', color: '#F59E0B' },
+  { x: 30, y:  1.5, r: 12, label: 'Изменение КИМов ФИПИ', color: '#F59E0B' },
+  { x: 20, y:  2.5, r: 13, label: 'Кибератака / утечка ПД', color: '#F59E0B' },
+  { x: 20, y:  0.8, r:  9, label: 'Уход сооснователя', color: '#10B981' },
+  { x: 15, y:  1.2, r: 10, label: 'Регуляторные изменения', color: '#10B981' },
+  { x: 10, y:  0.5, r:  7, label: 'Слабый органич. трафик', color: '#10B981' },
 ];
-new Chart(riskCtx,{
-  type:'bubble',
-  data:{
-    datasets:risks.map(r=>({
-      label:r.label,
-      data:[{x:r.x,y:r.y,r:Math.sqrt(r.x*r.y)*1.4+8}],
-      backgroundColor:r.color+'33',
-      borderColor:r.color,
-      borderWidth:1.5,
+
+const riskCtx = document.getElementById('riskChart').getContext('2d');
+new Chart(riskCtx, {
+  type: 'bubble',
+  data: {
+    datasets: riskData.map(r => ({
+      label: r.label,
+      data: [{ x: r.x, y: r.y, r: r.r }],
+      backgroundColor: r.color + '22',
+      borderColor: r.color,
+      borderWidth: 1.5,
     }))
   },
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    plugins:{
-      legend:{display:false},
-      tooltip:{callbacks:{
-        label:ctx=>`${ctx.dataset.label}: вер. ${ctx.raw.x}%, убыток ${ctx.raw.y} млн ₽`
-      }}
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => `${ctx.dataset.label}: вер. ${ctx.raw.x}%, убыток ~${ctx.raw.y} млн ₽`
+        }
+      }
     },
-    scales:{
-      x:{title:{display:true,text:'Вероятность события (%)',color:'#8A95A8',font:{size:12}},
-        min:0,max:65,ticks:{color:'#8A95A8',callback:v=>v+'%'},
-        grid:{color:'rgba(255,255,255,0.05)'},
-        border:{color:'rgba(255,255,255,0.1)'}},
-      y:{title:{display:true,text:'Убыток (₽ млн)',color:'#8A95A8',font:{size:12}},
-        min:0,max:6.5,ticks:{color:'#8A95A8',callback:v=>v+' млн'},
-        grid:{color:'rgba(255,255,255,0.05)'},
-        border:{color:'rgba(255,255,255,0.1)'}}
+    scales: {
+      x: {
+        title: { display: true, text: 'Вероятность события (%)', color: '#8B93A7', font: { size: 11.5, family: 'DM Sans' } },
+        min: 0, max: 75,
+        ticks: { color: '#8B93A7', callback: v => v + '%', font: { size: 10.5 } },
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        border: { color: 'rgba(255,255,255,.07)' }
+      },
+      y: {
+        title: { display: true, text: 'Потенциальный убыток (млн ₽)', color: '#8B93A7', font: { size: 11.5, family: 'DM Sans' } },
+        min: 0, max: 22,
+        ticks: { color: '#8B93A7', callback: v => v + ' млн', font: { size: 10.5 } },
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        border: { color: 'rgba(255,255,255,.07)' }
+      }
     }
   },
-  plugins:[{
-    afterDraw:chart=>{
-      const {ctx,chartArea:{left,right,top,bottom}}=chart;
-      const cx=(left+right)/2,cy=(top+bottom)/2;
+  plugins: [{
+    afterDraw: chart => {
+      const { ctx, chartArea: { left, right, top, bottom } } = chart;
+      const cx = left + (right - left) * 0.45;
+      const cy = top + (bottom - top) * 0.5;
       ctx.save();
-      ctx.fillStyle='rgba(239,68,68,0.04)';
-      ctx.fillRect(cx,top,right-cx,cy-top);
-      ctx.fillStyle='rgba(245,166,35,0.03)';
-      ctx.fillRect(left,top,cx-left,cy-top);
-      ctx.fillStyle='rgba(245,166,35,0.03)';
-      ctx.fillRect(cx,cy,right-cx,bottom-cy);
-      ctx.fillStyle='rgba(34,197,94,0.03)';
-      ctx.fillRect(left,cy,cx-left,bottom-cy);
+      ctx.fillStyle = 'rgba(244,63,94,0.045)';
+      ctx.fillRect(cx, top, right - cx, cy - top);
+      ctx.fillStyle = 'rgba(245,158,11,0.035)';
+      ctx.fillRect(left, top, cx - left, cy - top);
+      ctx.fillStyle = 'rgba(245,158,11,0.035)';
+      ctx.fillRect(cx, cy, right - cx, bottom - cy);
+      ctx.fillStyle = 'rgba(16,185,129,0.035)';
+      ctx.fillRect(left, cy, cx - left, bottom - cy);
+      ctx.font = '10.5px DM Sans,sans-serif';
+      ctx.fillStyle = 'rgba(244,63,94,0.4)';
+      ctx.fillText('КРИТИЧЕСКАЯ ЗОНА', cx + 8, top + 16);
+      ctx.fillStyle = 'rgba(16,185,129,0.4)';
+      ctx.fillText('Низкий риск', left + 8, bottom - 8);
       ctx.restore();
-      chart.data.datasets.forEach((ds,i)=>{
-        const meta=chart.getDatasetMeta(i);
-        if(meta.data[0]){
-          const {x,y}=meta.data[0].getProps(['x','y']);
+      chart.data.datasets.forEach((ds, i) => {
+        const meta = chart.getDatasetMeta(i);
+        if (meta.data[0]) {
+          const { x, y } = meta.data[0].getProps(['x', 'y']);
           ctx.save();
-          ctx.fillStyle='rgba(232,236,244,0.85)';
-          ctx.font='11px Outfit,sans-serif';
-          ctx.textAlign='left';
-          ctx.fillText(ds.label,x+12,y-4);
+          ctx.fillStyle = 'rgba(221,228,240,0.75)';
+          ctx.font = '10px DM Sans,sans-serif';
+          ctx.textAlign = 'left';
+          ctx.fillText(ds.label, x + meta.data[0].options.radius + 4, y + 4);
           ctx.restore();
         }
       });
@@ -1048,78 +1351,179 @@ new Chart(riskCtx,{
   }]
 });
 
-// DONUT CHART
-const donutCtx=document.getElementById('donutChart').getContext('2d');
-new Chart(donutCtx,{
-  type:'doughnut',
-  data:{
-    labels:['Разработка','Маркетинг','Контент','Команда','Резерв'],
-    datasets:[{
-      data:[35,25,20,15,5],
-      backgroundColor:['#00C9FF33','#0077FF33','#F5A62333','#A78BFA33','#22C55E33'],
-      borderColor:['#00C9FF','#0077FF','#F5A623','#A78BFA','#22C55E'],
-      borderWidth:1.5,
-      hoverOffset:6
+// ======= DONUT CHART =======
+const donutCtx = document.getElementById('donutChart').getContext('2d');
+new Chart(donutCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Разработка и IT', 'Маркетинг', 'Контент', 'ФОТ (6 мес)', 'Резерв'],
+    datasets: [{
+      data: [30, 25, 15, 25, 5],
+      backgroundColor: ['#3B82F622','#06B6D422','#F59E0B22','#8B5CF622','#10B98122'],
+      borderColor: ['#3B82F6','#06B6D4','#F59E0B','#8B5CF6','#10B981'],
+      borderWidth: 1.5,
+      hoverOffset: 5
     }]
   },
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    cutout:'70%',
-    plugins:{
-      legend:{display:false},
-      tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${ctx.parsed}% (${[4200,3000,2400,1800,600][ctx.dataIndex].toLocaleString()} ₽)`}}
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '72%',
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const vals = [5400, 4500, 2700, 4500, 900];
+            return `${ctx.label}: ${ctx.parsed}% (${vals[ctx.dataIndex].toLocaleString()} тыс ₽)`;
+          }
+        }
+      }
     }
   },
-  plugins:[{
-    beforeDraw:chart=>{
-      const{width,height,ctx}=chart;
+  plugins: [{
+    beforeDraw: chart => {
+      const { width, height, ctx } = chart;
       ctx.save();
-      ctx.font='700 28px Cormorant Garamond,serif';
-      ctx.fillStyle='#E8ECF4';
-      ctx.textAlign='center';
-      ctx.textBaseline='middle';
-      ctx.fillText('12 млн',width/2,height/2-10);
-      ctx.font='12px Outfit,sans-serif';
-      ctx.fillStyle='#8A95A8';
-      ctx.fillText('инвестиций',width/2,height/2+16);
+      ctx.font = "700 24px 'Cormorant Garamond',serif";
+      ctx.fillStyle = '#DDE4F0';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('18 млн', width / 2, height / 2 - 10);
+      ctx.font = "11px 'DM Sans',sans-serif";
+      ctx.fillStyle = '#8B93A7';
+      ctx.fillText('инвестиций', width / 2, height / 2 + 14);
       ctx.restore();
     }
   }]
 });
 
-// FINANCIAL CHART
-const finCtx=document.getElementById('finChart').getContext('2d');
-const months=['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек',
+// ======= FINANCIAL CHART =======
+const subs = [
+   80, 150, 250, 380, 520, 680, 850,1020,1200,1350,1450,1500,
+ 1700,2100,2700,3400,4100,4700,5100,5400,5600,5700,5850,6000,
+ 6500,7200,8100,9100,10100,11200,12200,13000,13700,14200,14700,15000
+];
+const revMonth = subs.map(s => Math.round(s * 0.850));
+const cogsMonth = subs.map(s => Math.round(s * 0.195));
+const opexMonth = Array.from({length: 36}, (_, i) => {
+  if (i < 12) return Math.round(1600 + i * 35);
+  if (i < 24) return Math.round(2000 + (i-12) * 60);
+  return Math.round(2700 + (i-24) * 65);
+});
+const costsMonth = subs.map((s, i) => cogsMonth[i] + opexMonth[i]);
+const ebitdaMonth = subs.map((_, i) => revMonth[i] - costsMonth[i]);
+
+const months36 = [
   'Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек',
-  'Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
-const subs=[100,180,260,350,450,560,680,800,950,1150,1400,1700,
-  2000,2500,3100,3800,4600,5400,6200,7000,7800,8600,9000,9500,
-  10500,11800,13200,14800,16500,18200,19800,21000,22200,23000,23500,24000];
-const rev=subs.map(s=>Math.round(s*890/1000));
-const costs=months.map((_,i)=>Math.round((800+i*8)));
-new Chart(finCtx,{
-  type:'line',
-  data:{
-    labels:months,
-    datasets:[
-      {label:'Выручка (тыс. ₽)',data:rev,borderColor:'#00C9FF',backgroundColor:'rgba(0,201,255,0.06)',fill:true,tension:.4,borderWidth:2,pointRadius:0,pointHoverRadius:5},
-      {label:'Расходы (тыс. ₽)',data:costs,borderColor:'#EF4444',backgroundColor:'rgba(239,68,68,0.04)',fill:true,tension:.4,borderWidth:2,pointRadius:0,pointHoverRadius:5},
-      {label:'Подписчики (шт)',data:subs,borderColor:'#A78BFA',backgroundColor:'transparent',tension:.4,borderWidth:1.5,pointRadius:0,pointHoverRadius:5,yAxisID:'y1'},
+  'Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек',
+  'Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'
+];
+const yearLabels = months36.map((m,i)=> i===0?'2026: '+m : i===12?'2027: '+m : i===24?'2028: '+m : m);
+
+const finCtx = document.getElementById('finChart').getContext('2d');
+new Chart(finCtx, {
+  type: 'line',
+  data: {
+    labels: yearLabels,
+    datasets: [
+      {
+        label: 'Выручка (тыс. ₽)',
+        data: revMonth,
+        borderColor: '#3B82F6',
+        backgroundColor: 'rgba(59,130,246,0.06)',
+        fill: true, tension: 0.4, borderWidth: 2,
+        pointRadius: 0, pointHoverRadius: 5
+      },
+      {
+        label: 'Суммарные затраты (тыс. ₽)',
+        data: costsMonth,
+        borderColor: '#F43F5E',
+        backgroundColor: 'rgba(244,63,94,0.05)',
+        fill: true, tension: 0.4, borderWidth: 2,
+        pointRadius: 0, pointHoverRadius: 5
+      },
+      {
+        label: 'EBITDA (тыс. ₽)',
+        data: ebitdaMonth,
+        borderColor: '#8B5CF6',
+        backgroundColor: 'transparent',
+        tension: 0.4, borderWidth: 1.5, borderDash: [4, 3],
+        pointRadius: 0, pointHoverRadius: 4, yAxisID: 'y'
+      },
+      {
+        label: 'Подписчики (шт)',
+        data: subs,
+        borderColor: '#10B981',
+        backgroundColor: 'transparent',
+        tension: 0.4, borderWidth: 1.5,
+        pointRadius: 0, pointHoverRadius: 4, yAxisID: 'y1'
+      }
     ]
   },
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    interaction:{mode:'index',intersect:false},
-    plugins:{
-      legend:{labels:{color:'#8A95A8',font:{size:12},padding:20,usePointStyle:true}},
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: {
+        labels: {
+          color: '#8B93A7', font: { size: 11, family: 'DM Sans' },
+          padding: 18, usePointStyle: true, pointStyleWidth: 12
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            if (ctx.dataset.yAxisID === 'y1') return `Подписчики: ${ctx.raw.toLocaleString()}`;
+            return `${ctx.dataset.label}: ${ctx.raw.toLocaleString()} тыс ₽`;
+          }
+        }
+      }
     },
-    scales:{
-      x:{ticks:{color:'#8A95A8',maxTicksLimit:12,font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'},border:{color:'rgba(255,255,255,.1)'}},
-      y:{ticks:{color:'#8A95A8',font:{size:11},callback:v=>v+'к'},grid:{color:'rgba(255,255,255,0.04)'},border:{color:'rgba(255,255,255,.1)'},title:{display:true,text:'Финансы (тыс. ₽)',color:'#8A95A8',font:{size:11}}},
-      y1:{position:'right',ticks:{color:'#A78BFA',font:{size:11},callback:v=>v.toLocaleString()},grid:{display:false},border:{color:'rgba(255,255,255,.1)'},title:{display:true,text:'Подписчики',color:'#A78BFA',font:{size:11}}}
+    scales: {
+      x: {
+        ticks: { color: '#8B93A7', maxTicksLimit: 12, font: { size: 10 } },
+        grid: { color: 'rgba(255,255,255,0.03)' },
+        border: { color: 'rgba(255,255,255,.06)' }
+      },
+      y: {
+        ticks: { color: '#8B93A7', font: { size: 10 }, callback: v => v + 'к' },
+        grid: { color: 'rgba(255,255,255,0.03)' },
+        border: { color: 'rgba(255,255,255,.06)' },
+        title: { display: true, text: 'тыс. ₽/мес', color: '#8B93A7', font: { size: 10, family: 'DM Sans' } }
+      },
+      y1: {
+        position: 'right',
+        ticks: { color: '#10B981', font: { size: 10 }, callback: v => v.toLocaleString() },
+        grid: { display: false },
+        border: { color: 'rgba(255,255,255,.06)' },
+        title: { display: true, text: 'Подписчики', color: '#10B981', font: { size: 10, family: 'DM Sans' } }
+      }
     }
-  }
+  },
+  plugins: [{
+    afterDraw: chart => {
+      const meta = chart.getDatasetMeta(0);
+      if (!meta.data[19]) return;
+      const { ctx, chartArea } = chart;
+      const x = meta.data[19].x;
+      ctx.save();
+      ctx.strokeStyle = 'rgba(245,158,11,0.45)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(x, chartArea.top);
+      ctx.lineTo(x, chartArea.bottom);
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(245,158,11,0.7)';
+      ctx.font = '10px DM Sans,sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('Breakeven', x + 5, chartArea.top + 14);
+      ctx.restore();
+    }
+  }]
 });
+
+} // end initCharts
 </script>
 </body>
 </html>
